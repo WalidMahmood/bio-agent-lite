@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-border; }
+  html { @apply scroll-smooth; }
+  body {
+    @apply bg-void text-ink font-sans antialiased overflow-x-hidden;
+    font-family: 'Sora', 'Satoshi', system-ui, sans-serif;
+    background: #070A0A;
+    color: #F2F4F3;
+  }
+  ::selection { background: rgba(20,190,138,0.22); }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .mono-tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* Custom scrollbar - lab thin */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #070A0A; }
+::-webkit-scrollbar-thumb { background: #1E2E28; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #2A3F36; }
+
+/* Grain texture - fixed pseudo isolated */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
