@@ -1,0 +1,21 @@
+sample,gsm,treatment,batch,group_heldout_suggestion,note
+NKI_shSCR_1_RNASeq,GSM2501571,shScramble,B1,control,HELD-OUT - do not tune on this
+NKI_shSCR-1_B2_RNASeq,GSM2501572,shScramble,B2,control,HELD-OUT - do not tune on this
+NKI_shSCR_2_RNASeq,GSM2501573,shScramble,B1,control,HELD-OUT
+NKI_shSCR-2_B2_RNASeq,GSM2501574,shScramble,B2,control,HELD-OUT
+NKI_shSCR_4_RNASeq,GSM2501575,shScramble,B1,control,HELD-OUT
+NKI_shSCR-3_B2_RNASeq,GSM2501576,shScramble,B2,control,HELD-OUT
+NKI_shSCR_7_RNASeq,GSM2501577,shScramble,B1,control,HELD-OUT
+NKI_shSCR-4_B2_RNASeq,GSM2501578,shScramble,B2,control,HELD-OUT
+NKI_shSCR_8_RNASeq,GSM2501579,shScramble,B1,control,HELD-OUT
+NKI_shSCR-5_B2_RNASeq,GSM2501580,shScramble,B2,control,HELD-OUT
+NKI_shFra-1_RNASeq,GSM2501581,shFra1,B1,shFra1,HELD-OUT candidate contrast vs control
+NKI_shFra-1_B2_RNASeq,GSM2501582,shFra1,B2,shFra1,HELD-OUT candidate contrast vs control
+NKI_shMyc_I_RNASeq,GSM2501583,shMYC,B1,other,HELD-OUT
+NKI_shMyc_B2_RNASeq,GSM2501584,shMYC,B2,other,HELD-OUT
+NKI_shE2F1_RNASeq,GSM2501585,shE2F1,B1,other,HELD-OUT
+NKI_shE2F1_B2_RNASeq,GSM2501586,shE2F1,B2,other,HELD-OUT
+NKI_shp53_RNASeq,GSM2501587,shTP53,B1,other,HELD-OUT
+NKI_shp53_B2_RNASeq,GSM2501588,shTP53,B2,other,HELD-OUT
+NKI_shEZH2_RNASeq,GSM2501589,shEZH2,B1,other,HELD-OUT
+NKI_shEZH2_B2_RNASeq,GSM2501590,shEZH2,B2,other,HELD-OUT

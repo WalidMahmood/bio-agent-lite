@@ -1,0 +1,5 @@
+Configuration,Dataset,Statistical Accuracy,Direction Errors,Stat Trap Errors,Evidence Support Rate,Unsupported Claims,Correction Iterations
+Full System,GSE202768,1.0,0,0,0.625,0.375,1
+A4: - Critic,GSE202768,1.0,0,0,0.625,0.375,0
+A3: - Evidence,GSE202768,1.0,0,0,0.0,0.0,0
+A1: - Planner,GSE202768,1.0,0,0,0.7143,0.2857,0

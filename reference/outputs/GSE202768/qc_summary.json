@@ -1,0 +1,74 @@
+{
+  "dataset": "GSE202768",
+  "contrast": "KD_DOX (n=3) vs KD_noDOX (n=3), Hs578 only, design ~group_dev",
+  "genes_total": 20114,
+  "genes_tested": 14009,
+  "padj_threshold": 0.05,
+  "n_sig": 3946,
+  "n_up": 2002,
+  "n_down": 1944,
+  "top10": [
+    {
+      "gene": "TGFBI",
+      "log2FoldChange": 1.9504546703186443,
+      "pvalue": 3.696834186841363e-41,
+      "padj": 4.676864929773009e-37
+    },
+    {
+      "gene": "COL1A1",
+      "log2FoldChange": 2.0818160773604775,
+      "pvalue": 1.0608350139335144e-33,
+      "padj": 6.710311880636446e-30
+    },
+    {
+      "gene": "PRRX1",
+      "log2FoldChange": -2.277870800484875,
+      "pvalue": 3.0263885128478222e-33,
+      "padj": 1.2762280358679266e-29
+    },
+    {
+      "gene": "TNFRSF11B",
+      "log2FoldChange": -1.6830447805990139,
+      "pvalue": 1.2340199969468327e-26,
+      "padj": 3.902896745343595e-23
+    },
+    {
+      "gene": "COL5A1",
+      "log2FoldChange": 1.205315302790096,
+      "pvalue": 2.4797835777362102e-25,
+      "padj": 6.2743484083881585e-22
+    },
+    {
+      "gene": "TNC",
+      "log2FoldChange": 1.8893064809244906,
+      "pvalue": 1.1758324625378473e-22,
+      "padj": 2.4792427472610513e-19
+    },
+    {
+      "gene": "MCTP1",
+      "log2FoldChange": -1.6565511902908387,
+      "pvalue": 1.9634712228443593e-22,
+      "padj": 3.5485534914577125e-19
+    },
+    {
+      "gene": "PDP1",
+      "log2FoldChange": -1.0657305858752875,
+      "pvalue": 2.3702041007361037e-22,
+      "padj": 3.748181509801556e-19
+    },
+    {
+      "gene": "SLC7A11",
+      "log2FoldChange": -1.2165698817348698,
+      "pvalue": 2.119829012315512e-21,
+      "padj": 2.9797729816448386e-18
+    },
+    {
+      "gene": "IGFBP1",
+      "log2FoldChange": -2.49791127661533,
+      "pvalue": 5.599330496034018e-21,
+      "padj": 7.083713010532637e-18
+    }
+  ],
+  "runtime_s": 24.5,
+  "pipeline": "pydeseq2 0.5.4 (Python DESeq2 port)"
+}

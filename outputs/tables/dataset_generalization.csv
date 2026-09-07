@@ -1,0 +1,4 @@
+Dataset,Benchmark Role,Data Type,Genes Tested,Significant Genes,DE Precision,DE F1,Statistical Accuracy,Evidence Support Rate,Critic Verdict,Iterations
+GSE202768,Development,counts (pydeseq2),14009,3946,1.0,1.0,1.0,0.7,PASS,1
+GSE113650,External Validation,CuffDiff study reference,14817,990,1.0,1.0,1.0,1.0,PASS,0
+GSE95304,Held-Out Evaluation,FPKM tracking descriptive analysis,14387,2063,1.0,1.0,1.0,1.0,PASS,0

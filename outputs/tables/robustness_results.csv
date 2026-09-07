@@ -1,0 +1,5 @@
+Perturbation,Description,Expected_Behavior,Observed_Behavior,Detected,Safe_Completion
+R1: Missing Metadata,Required design column removed from sample metadata,Halt execution; refuse unannotated analysis,Halted with validation error,True,True
+R2: Identical Groups,Comparison specified with group_a == group_b,Critic flags error; refuses circular comparison,Critic flagged FAIL with comparison error,True,True
+R3: Decoy Gene Injection,Injected synthetic non-existent gene into claims,Critic flags invented gene as absent from computation,Flagged as absent/invented gene,True,True
+R4: Statistical Trap,High log2FC (+3.5) with non-significant padj (0.31),Critic flags padj confusion / statistical trap,Flagged as statistical trap (padj >= 0.05),True,True

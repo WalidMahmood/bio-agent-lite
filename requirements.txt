@@ -1,0 +1,10 @@
+# BioAgent-Lite P0 - Windows Python 3.11.9
+# Already installed (do NOT reinstall): fastapi, uvicorn, celery, redis, langgraph, pandas, numpy, scipy, scikit-learn, matplotlib, torch, chromadb, sqlalchemy, psycopg2-binary, pydantic
+# To install (missing):
+pydeseq2>=0.4.0
+gseapy>=1.0.0
+GEOparse>=2.0.0
+mygene>=3.2.0
+sentence-transformers>=2.0.0
+transformers>=4.40.0
+ollama>=0.6.0

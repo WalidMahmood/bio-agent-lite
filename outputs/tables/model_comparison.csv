@@ -1,0 +1,4 @@
+Model,Developer,Parameters,Quantization,Domain,Inference Speed (t/s),Peak VRAM (MB),DE Precision,DE F1,Statistical Accuracy,Evidence Grounding,Hallucination Rate,Role Status
+Gemma 3 4B IT (Primary),Google,4B,Q8_K_XL (4.81 GB),General Reasoning,38.5,4919,1.0,1.0,1.0,High (100% verified),0.0%,P0 Benchmark Primary
+MedGemma 4B IT,Google,4B,Q8_K_XL (4.81 GB),Medical / Clinical,32.7,4919,1.0,1.0,0.95,Moderate-High (95%),0.0%,P1 Biomedical Comparison
+Qwen3 8B IT,Alibaba,8B,Q4_K_M (5.02 GB),General Instruction,44.7,5120,1.0,1.0,1.0,High (100% verified),0.0%,Alternative Capacity Reference

@@ -1,0 +1,95 @@
+{
+  "run_id": "baseline_llm_only_GSE202768_20260906T180753Z",
+  "model": "Gemma-3-4B-IT-Q8",
+  "system": "LLM-only (Baseline 1)",
+  "dataset": "GSE202768",
+  "question": "Perform differential expression analysis on GSE202768 (PRRX1 knockdown vs uninduced control in Hs578 TNBC cells). Identify the top significant genes, fold changes, adjusted p-values, and biological pathways.",
+  "latency_s": 12.62,
+  "tokens": 720,
+  "llm_output": {
+    "top_genes": [
+      {
+        "gene": "PRRX1",
+        "log2FC": -4.12,
+        "padj": 0.0005,
+        "direction": "down"
+      },
+      {
+        "gene": "CDK6",
+        "log2FC": -2.85,
+        "padj": 0.002,
+        "direction": "down"
+      },
+      {
+        "gene": "MYC",
+        "log2FC": -2.61,
+        "padj": 0.003,
+        "direction": "down"
+      },
+      {
+        "gene": "CCND1",
+        "log2FC": -2.38,
+        "padj": 0.006,
+        "direction": "down"
+      },
+      {
+        "gene": "GAPDH",
+        "log2FC": 1.25,
+        "padj": 0.01,
+        "direction": "up"
+      }
+    ],
+    "pathways": [
+      "Cell Cycle",
+      "DNA Replication",
+      "E2F Signaling Pathway",
+      "TGF-beta Signaling Pathway"
+    ],
+    "interpretation": "PRRX1 knockdown in Hs578 TNBC cells results in downregulation of key cell cycle regulators (PRRX1, CDK6, MYC, CCND1) and upregulation of GAPDH. This suggests a disruption of cell cycle progression and potentially altered cell growth and proliferation, consistent with the observed effects of PRRX1 inhibition on TNBC cell lines. The involvement of E2F and TGF-beta pathways highlights potential mechanisms underlying these changes.",
+    "claims": [
+      {
+        "statement": "PRRX1 knockdown significantly reduces cell cycle progression in Hs578 TNBC cells.",
+        "genes": [
+          "PRRX1",
+          "CDK6",
+          "MYC",
+          "CCND1"
+        ]
+      },
+      {
+        "statement": "Downregulation of PRRX1 is associated with increased expression of GAPDH, potentially compensating for the loss of PRRX1 function.",
+        "genes": [
+          "PRRX1",
+          "GAPDH"
+        ]
+      },
+      {
+        "statement": "The observed changes implicate dysregulation of E2F and TGF-beta signaling pathways.",
+        "genes": [
+          "MYC",
+          "CCND1"
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "precision": 0.2,
+    "recall": 0.04,
+    "f1": 0.0667,
+    "true_positives": 1,
+    "false_positives": 4,
+    "false_negatives": 24,
+    "top_10_overlap": 0.1,
+    "top_10_jaccard": 0.0714,
+    "top_25_overlap": 0.04,
+    "top_25_jaccard": 0.0345,
+    "statistical_accuracy": 0.25,
+    "total_gene_claims": 8,
+    "correct_gene_claims": 2,
+    "direction_errors": 0,
+    "padj_stat_trap_errors": 0,
+    "invented_genes": 6,
+    "evidence_support_rate": 0.0,
+    "hallucination_rate": 1.2
+  }
+}

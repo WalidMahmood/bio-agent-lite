@@ -1,0 +1,350 @@
+{
+  "run_id": "dev_20260905T165100Z",
+  "question": "Compare DOX-induced PRRX1 knockdown (KD_DOX) against uninduced control (KD_noDOX) in Hs578 TNBC cells and identify genes and pathways associated with the response.",
+  "use_llm": false,
+  "plan": {
+    "analysis_goal": "Identify genes and pathways associated with DOX-induced PRRX1 knockdown in Hs578 TNBC cells",
+    "dataset": "GSE202768",
+    "organism": "Homo sapiens",
+    "comparison": {
+      "group_a": "KD_DOX",
+      "group_b": "KD_noDOX"
+    },
+    "design": "~group_dev",
+    "de_method": "pydeseq2 (count-based, padj<0.05)",
+    "required_steps": [
+      "validate_metadata",
+      "run_differential_expression",
+      "run_enrichment",
+      "retrieve_evidence",
+      "verify_results"
+    ]
+  },
+  "comp": {
+    "dataset": "GSE202768",
+    "contrast": "KD_DOX (n=3) vs KD_noDOX (n=3), Hs578, design ~group_dev",
+    "n_sig": 3946,
+    "n_up": 2002,
+    "n_down": 1944,
+    "padj_threshold": 0.05,
+    "top_genes": [
+      {
+        "gene": "TGFBI",
+        "log2FC": 1.9504546703186445,
+        "padj": 4.676864929773009e-37,
+        "direction": "up"
+      },
+      {
+        "gene": "COL1A1",
+        "log2FC": 2.081816077360477,
+        "padj": 6.710311880636446e-30,
+        "direction": "up"
+      },
+      {
+        "gene": "PRRX1",
+        "log2FC": -2.277870800484875,
+        "padj": 1.2762280358679266e-29,
+        "direction": "down"
+      },
+      {
+        "gene": "TNFRSF11B",
+        "log2FC": -1.683044780599014,
+        "padj": 3.902896745343595e-23,
+        "direction": "down"
+      },
+      {
+        "gene": "COL5A1",
+        "log2FC": 1.205315302790096,
+        "padj": 6.274348408388159e-22,
+        "direction": "up"
+      },
+      {
+        "gene": "TNC",
+        "log2FC": 1.8893064809244904,
+        "padj": 2.479242747261052e-19,
+        "direction": "up"
+      },
+      {
+        "gene": "MCTP1",
+        "log2FC": -1.6565511902908387,
+        "padj": 3.5485534914577125e-19,
+        "direction": "down"
+      },
+      {
+        "gene": "PDP1",
+        "log2FC": -1.0657305858752877,
+        "padj": 3.748181509801556e-19,
+        "direction": "down"
+      },
+      {
+        "gene": "SLC7A11",
+        "log2FC": -1.2165698817348698,
+        "padj": 2.9797729816448386e-18,
+        "direction": "down"
+      },
+      {
+        "gene": "IGFBP1",
+        "log2FC": -2.49791127661533,
+        "padj": 7.083713010532637e-18,
+        "direction": "down"
+      },
+      {
+        "gene": "NPC1",
+        "log2FC": -1.1550813684696557,
+        "padj": 1.5102504325998457e-17,
+        "direction": "down"
+      },
+      {
+        "gene": "MME",
+        "log2FC": -1.3481401317416597,
+        "padj": 6.247486006162661e-16,
+        "direction": "down"
+      },
+      {
+        "gene": "NR4A3",
+        "log2FC": -2.3950607005872917,
+        "padj": 8.835645361128253e-16,
+        "direction": "down"
+      },
+      {
+        "gene": "HDAC9",
+        "log2FC": -1.4252689826803595,
+        "padj": 1.20486334278051e-15,
+        "direction": "down"
+      },
+      {
+        "gene": "FGF5",
+        "log2FC": -1.2217780123933522,
+        "padj": 1.20486334278051e-15,
+        "direction": "down"
+      },
+      {
+        "gene": "NAV2",
+        "log2FC": -1.0503766621479036,
+        "padj": 1.2973591436941206e-15,
+        "direction": "down"
+      },
+      {
+        "gene": "CD82",
+        "log2FC": 1.144573421738774,
+        "padj": 1.3020456521335989e-15,
+        "direction": "up"
+      },
+      {
+        "gene": "CPED1",
+        "log2FC": -1.5674959673435722,
+        "padj": 1.4416732320232036e-15,
+        "direction": "down"
+      },
+      {
+        "gene": "BMP1",
+        "log2FC": 1.214672604810428,
+        "padj": 1.847623105396971e-15,
+        "direction": "up"
+      },
+      {
+        "gene": "SEPW1",
+        "log2FC": 1.0962580088610017,
+        "padj": 2.699424963745352e-15,
+        "direction": "up"
+      },
+      {
+        "gene": "NUDT4",
+        "log2FC": -1.006667826360555,
+        "padj": 4.673175429194584e-15,
+        "direction": "down"
+      },
+      {
+        "gene": "VAT1L",
+        "log2FC": -1.8083849462002368,
+        "padj": 6.505459939268929e-15,
+        "direction": "down"
+      },
+      {
+        "gene": "PLOD1",
+        "log2FC": 1.0213351340631438,
+        "padj": 8.859149645393306e-15,
+        "direction": "up"
+      },
+      {
+        "gene": "SPARC",
+        "log2FC": 1.0834418280075515,
+        "padj": 8.986460983767583e-15,
+        "direction": "up"
+      },
+      {
+        "gene": "ID3",
+        "log2FC": 0.9660953853998484,
+        "padj": 1.1827369124218294e-14,
+        "direction": "up"
+      }
+    ],
+    "sig_pathways": [
+      {
+        "source": "GO",
+        "term": "Extracellular Matrix Organization (GO:0030198)",
+        "adjP": 7.990418150705103e-05,
+        "overlap": "17/176"
+      },
+      {
+        "source": "GO",
+        "term": "Extracellular Structure Organization (GO:0043062)",
+        "adjP": 0.0044920530008649,
+        "overlap": "11/109"
+      },
+      {
+        "source": "GO",
+        "term": "External Encapsulating Structure Organization (GO:0045229)",
+        "adjP": 0.0044920530008649,
+        "overlap": "11/110"
+      },
+      {
+        "source": "GO",
+        "term": "Regulation Of Cell Migration (GO:0030334)",
+        "adjP": 0.0044920530008649,
+        "overlap": "23/434"
+      },
+      {
+        "source": "GO",
+        "term": "Collagen Fibril Organization (GO:0030199)",
+        "adjP": 0.0047245178336573,
+        "overlap": "7/42"
+      },
+      {
+        "source": "Reactome",
+        "term": "Extracellular Matrix Organization R-HSA-1474244",
+        "adjP": 2.20351631143367e-07,
+        "overlap": "25/291"
+      },
+      {
+        "source": "Reactome",
+        "term": "Collagen Formation R-HSA-1474290",
+        "adjP": 4.74153354872231e-06,
+        "overlap": "13/90"
+      },
+      {
+        "source": "Reactome",
+        "term": "Collagen Biosynthesis And Modifying Enzymes R-HSA-1650814",
+        "adjP": 0.0001107588317548,
+        "overlap": "10/67"
+      },
+      {
+        "source": "Reactome",
+        "term": "Interferon Alpha/Beta Signaling R-HSA-909733",
+        "adjP": 0.0012610747413533,
+        "overlap": "9/72"
+      },
+      {
+        "source": "Reactome",
+        "term": "Binding And Uptake Of Ligands By Scavenger Receptors R-HSA-2173782",
+        "adjP": 0.0012610747413533,
+        "overlap": "7/41"
+      },
+      {
+        "source": "KEGG",
+        "term": "ECM-receptor interaction",
+        "adjP": 2.31681843871852e-06,
+        "overlap": "13/88"
+      },
+      {
+        "source": "KEGG",
+        "term": "Human papillomavirus infection",
+        "adjP": 4.087023023868621e-05,
+        "overlap": "22/331"
+      },
+      {
+        "source": "KEGG",
+        "term": "Focal adhesion",
+        "adjP": 0.0022048086871998,
+        "overlap": "14/201"
+      },
+      {
+        "source": "KEGG",
+        "term": "PI3K-Akt signaling pathway",
+        "adjP": 0.008183600507407,
+        "overlap": "18/354"
+      },
+      {
+        "source": "KEGG",
+        "term": "Hematopoietic cell lineage",
+        "adjP": 0.0255292178736353,
+        "overlap": "8/99"
+      }
+    ]
+  },
+  "interp": {
+    "observations": [
+      "3946 genes significant at padj<0.05 (2002 up, 1944 down in KD_DOX vs KD_noDOX).",
+      "Top hit by padj: TGFBI."
+    ],
+    "claims": [
+      {
+        "statement": "PRRX1 knockdown confirmed by its own down-regulation.",
+        "type": "observed",
+        "genes": [
+          "PRRX1"
+        ],
+        "pathways": []
+      }
+    ],
+    "limitations": [
+      "LLM interpretation unavailable; fallback summary only."
+    ],
+    "uncertainty": [
+      "Biological mechanism not assessed in fallback."
+    ]
+  },
+  "evidence": [
+    {
+      "claim": "PRRX1 knockdown confirmed by its own down-regulation.",
+      "query": "DE:PRRX1",
+      "source_id": "GSE202768:de_results.csv#PRRX1",
+      "source_db": "DE_table",
+      "snippet": "PRRX1: log2FC=-2.28, padj=1.28e-29",
+      "relevance": 1.0,
+      "timestamp": "2026-09-05T16:51:00.218391+00:00"
+    }
+  ],
+  "verdict": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "corrections": []
+  },
+  "traces": [
+    {
+      "agent": "planner",
+      "question": "Compare DOX-induced PRRX1 knockdown (KD_DOX) against uninduced control (KD_noDOX) in Hs578 TNBC cells and identify genes and pathways associated with the response.",
+      "llm_used": false,
+      "fallback": true
+    },
+    {
+      "agent": "computational_analyst",
+      "llm_used": false,
+      "genes_tested": 14009,
+      "source": "reference/outputs/GSE202768/*.csv"
+    },
+    {
+      "agent": "biological_interpreter",
+      "llm_used": false,
+      "fallback": true
+    },
+    {
+      "agent": "evidence_retriever",
+      "llm_used": false,
+      "n_records": 1,
+      "corpus": "local reference CSVs (P0)"
+    },
+    {
+      "agent": "critic",
+      "llm_used": false,
+      "checks": [
+        "gene_present",
+        "padj_significance",
+        "direction",
+        "pathway_present",
+        "wording"
+      ]
+    }
+  ]
+}

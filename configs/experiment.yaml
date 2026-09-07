@@ -1,0 +1,9 @@
+# Experiment manifest seed (Master #40). Frozen before held-out eval.
+experiment: "BioAgent-Lite P0"
+seeds: { python: 42, numpy: 42 }
+prompts_version: "v0.1-dev (GSE202768 tuning only)"
+python: "3.11.9"
+os: "Windows 11 Home 10.0.26200"
+gpu: "NVIDIA GeForce RTX 5050 Laptop GPU (8151 MiB)"
+reference_pipeline: "pydeseq2 (Python) + gseapy (Python) - R/Bioconductor not installed on this machine"
+notes: "R DESeq2/clusterProfiler path documented in docs/methodology.md as future reproducibility option; all P0 metrics from Python pipeline"

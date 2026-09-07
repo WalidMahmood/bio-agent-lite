@@ -1,0 +1,29 @@
+{
+  "run_id": "baseline_single_agent_GSE202768_20260906T181011Z",
+  "model": "Gemma-3-4B-IT-Q8",
+  "system": "Single Tool-Using Agent (Baseline 2)",
+  "dataset": "GSE202768",
+  "question": "Analyze the differential expression response in GSE202768 and identify key regulated genes and biological mechanisms.",
+  "latency_s": 19.59,
+  "tokens": 1772,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 0.6,
+    "f1": 0.75,
+    "true_positives": 15,
+    "false_positives": 0,
+    "false_negatives": 10,
+    "top_10_overlap": 1.0,
+    "top_10_jaccard": 1.0,
+    "top_25_overlap": 0.6,
+    "top_25_jaccard": 0.6,
+    "statistical_accuracy": 1.0,
+    "total_gene_claims": 5,
+    "correct_gene_claims": 5,
+    "direction_errors": 0,
+    "padj_stat_trap_errors": 0,
+    "invented_genes": 0,
+    "evidence_support_rate": 0.5,
+    "hallucination_rate": 0.0
+  }
+}

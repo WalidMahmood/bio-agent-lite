@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Large Model Weights (Keep local paths, do not commit 5GB GGUFs to Git)
+models/*.gguf
+models/*-UD-Q8_K_XL.gguf
+chroma_data/
+
+# Logs & Temporary files
+*.log
+server.log
+server_err.log
+
+# Node & Frontend
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+Thumbs.db
+
+# IDE & OS
+.vscode/
+.idea/

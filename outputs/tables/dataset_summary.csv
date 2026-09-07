@@ -1,0 +1,5 @@
+Dataset Accession,Organism,Samples (n),Data Type,Biological Comparison,Analysis Strategy,Benchmark Role
+GSE336903,Mus musculus,6,Processed FPKM (Non-count),Cell line treatment vs control (3v3),Descriptive log2FC + t-test (Count-refusal guard active),Smoke Test
+GSE202768,Homo sapiens,16,Count matrix + FPKM,DOX-induced shPRRX1 KD vs uninduced (3v3 Hs578),"pydeseq2 (Wald negative binomial, BH padj < 0.05)",Development & Tuning
+GSE95304,Homo sapiens,20,FPKM tracking archives,shMyc / shFra-1 vs scrambled control (shSCR),Descriptive fold change + FDR ranking,Held-Out Evaluation
+GSE113650,Homo sapiens,6,CuffDiff statistical table,TNBC (n=3) vs receptor-positive (n=3) cell lines,Study reference CuffDiff verification (q_value < 0.05),External Validation

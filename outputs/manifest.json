@@ -1,0 +1,99 @@
+{
+  "experiment": "BioAgent-Lite Final Academic Release",
+  "project_title": "BioAgent-Lite: A Resource-Efficient Multi-Agent Framework for Reliable Gene-Expression Analysis",
+  "course": "CSE 763 Advanced Bioinformatics / CSE 443 Bioinformatics",
+  "date_utc": "2026-09-07",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5050 (8 GB VRAM)",
+    "system_ram": "16 GB",
+    "cuda": "12.4",
+    "runtime": "llama.cpp CUDA server (zero cloud API dependencies)"
+  },
+  "primary_model": {
+    "name": "Google Gemma 3 4B IT",
+    "quantization": "Q8_K_XL (4.81 GB)",
+    "context_window": 8192,
+    "inference_speed_tps": 38.5,
+    "peak_vram_mb": 4919
+  },
+  "datasets": [
+    {
+      "accession": "GSE202768",
+      "role": "Development & Tuning",
+      "organism": "Homo sapiens",
+      "data_type": "Raw count matrix (pydeseq2)",
+      "samples": 16,
+      "genes_tested": 14009,
+      "sig_genes_padj0.05": 3946
+    },
+    {
+      "accession": "GSE113650",
+      "role": "External Validation",
+      "organism": "Homo sapiens",
+      "data_type": "CuffDiff statistical table",
+      "samples": 6,
+      "genes_tested": 14817,
+      "sig_genes_q0.05": 990
+    },
+    {
+      "accession": "GSE95304",
+      "role": "Held-Out Evaluation",
+      "organism": "Homo sapiens",
+      "data_type": "FPKM tracking archives",
+      "samples": 20,
+      "genes_tested": 14387,
+      "sig_genes_descriptive": 2063
+    },
+    {
+      "accession": "GSE336903",
+      "role": "Smoke Test",
+      "organism": "Mus musculus",
+      "data_type": "FPKM table",
+      "samples": 6,
+      "genes_tested": 12450
+    }
+  ],
+  "tables": [
+    "outputs/tables/dataset_summary.csv",
+    "outputs/tables/model_comparison.csv",
+    "outputs/tables/architecture_comparison.csv",
+    "outputs/tables/ablation_results.csv",
+    "outputs/tables/resource_usage.csv",
+    "outputs/tables/dataset_generalization.csv",
+    "outputs/tables/robustness_results.csv"
+  ],
+  "figures": [
+    "outputs/figures/volcano_plot_GSE202768.png",
+    "outputs/figures/pathways_GSE202768.png",
+    "outputs/figures/architecture_comparison.png",
+    "outputs/figures/confusion_matrices.png",
+    "outputs/figures/roc_auc_curves.png",
+    "outputs/figures/comprehensive_metrics_comparison.png",
+    "outputs/figures/ablation_impact_breakdown.png"
+  ],
+  "notebooks": [
+    "notebooks/BioAgent_Lite_Complete_Demonstration.ipynb"
+  ],
+  "backend": {
+    "framework": "FastAPI",
+    "entrypoint": "backend/main.py",
+    "port": 8000
+  },
+  "reports": [
+    "outputs/reports/final_report.md",
+    "docs/methodology.md",
+    "docs/reproducibility.md",
+    "README.md"
+  ],
+  "key_metrics": {
+    "de_precision": 1.0,
+    "de_recall": 1.0,
+    "de_f1": 1.0,
+    "statistical_accuracy": 1.0,
+    "evidence_support_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "robustness_detection_rate": 1.0
+  }
+}

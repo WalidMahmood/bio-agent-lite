@@ -1,0 +1,52 @@
+# GEO datasets - FTP verified 2026-09-05. Download via download_datasets.py (no NCBI browser needed).
+datasets:
+  GSE202768:
+    role: "development"
+    samples: 16
+    comparison: "PRRX1_KD vs Control"
+    design: "~ condition"
+    ftp_base: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE202nnn/GSE202768"
+    files:
+      matrix: "matrix/GSE202768_series_matrix.txt.gz"
+      counts: "suppl/GSE202768_TNBC_Cell_line_PRRX1_KD_RNAseq_Gene_Counts.csv.gz"
+      fpkm: "suppl/GSE202768_TNBC_Cell_line_PRRX1_KD_RNAseq_Gene_FPKM.csv.gz"
+    local_dir: "data/raw/GSE202768"
+    data_type: "count (DESeq2/pydeseq2 eligible) + FPKM"
+    de_method: "pydeseq2 (Python DESeq2 port; R/Bioconductor absent on this machine - see docs/methodology.md)"
+
+  GSE336903:
+    role: "smoke"
+    samples: 6
+    comparison: "treatment vs control (Fig7 cell line)"
+    ftp_base: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE336nnn/GSE336903"
+    files:
+      matrix: "matrix/GSE336903_series_matrix.txt.gz"
+      fpkm: "suppl/GSE336903_Fig7_cell_line_FPKM_matrix_GEO.csv.gz"
+    local_dir: "data/raw/GSE336903"
+    data_type: "FPKM only - NO counts"
+    de_method: "DESCRIPTIVE ONLY (log2FC from FPKM + t-test; NEVER DESeq2 on FPKM per Master #13)"
+
+  GSE95304:
+    role: "held-out (freeze prompts before eval)"
+    samples: 20
+    comparison: "shFra-1/shMyc/shE2F1/shp53/shEZH2 vs scrambled (to be fixed at freeze)"
+    ftp_base: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE95nnn/GSE95304"
+    files:
+      matrix: "matrix/GSE95304_series_matrix.txt.gz"
+      raw_tar: "suppl/GSE95304_RAW.tar"
+      filelist: "suppl/filelist.txt"
+    local_dir: "data/raw/GSE95304"
+    data_type: "TBD from filelist.txt (plan says FPKM + SRA raw)"
+    de_method: "to be documented after filelist inspection"
+
+  GSE113650:
+    role: "external validation"
+    samples: 6
+    comparison: "TNBC (MDA-MB-468/HCC70/HCC1143) vs non-TNBC (MCF7/BT474/T47D)"
+    ftp_base: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE113nnn/GSE113650"
+    files:
+      matrix: "matrix/GSE113650_series_matrix.txt.gz"
+      cuffdiff: "suppl/GSE113650_RNA-seq_BRCA_CellLine_CuffDiff_GEO_submit.txt.gz"
+    local_dir: "data/raw/GSE113650"
+    data_type: "processed + CuffDiff (no raw counts)"
+    de_method: "use study CuffDiff as reference result (label as study result, not ground truth per Master #13)"

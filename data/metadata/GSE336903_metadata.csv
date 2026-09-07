@@ -1,0 +1,7 @@
+sample,gsm,group,organism,note
+figure7_cell_line_control_rep1,GSM9844312,control,Mus musculus,FPKM only - no DESeq2
+figure7_cell_line_control_rep2,GSM9844313,control,Mus musculus,FPKM only - no DESeq2
+figure7_cell_line_control_rep3,GSM9844314,control,Mus musculus,FPKM only - no DESeq2
+figure7_cell_line_treatment_rep1,GSM9844315,treatment,Mus musculus,FPKM only - no DESeq2
+figure7_cell_line_treatment_rep2,GSM9844316,treatment,Mus musculus,FPKM only - no DESeq2
+figure7_cell_line_treatment_rep3,GSM9844317,treatment,Mus musculus,FPKM only - no DESeq2

@@ -1,0 +1,56 @@
+# Actual local models (verified 2026-09-05/06, F:\443cse-bioagent_lite\models\)
+# NOTE: Plan specified Q4 GGUFs, but downloaded artifacts are Q8_K_XL (4.81GB) + Qwen3-8B Q4. Recording as-is.
+primary:
+  id: "gemma-3-4b-it-UD-Q8_K_XL"
+  path: "models/gemma-3-4b-it-UD-Q8_K_XL.gguf"
+  size_gb: 4.81
+  quant: "Q8_K_XL"
+  context: 128000
+  runtime: "llama.cpp llama-server b10819 (CUDA 12.4) - NO ollama per user decision"
+  endpoint: "http://127.0.0.1:8080"
+  role: "primary reasoning (all 5 agents share one server instance, sequential calls)"
+
+biomedical_comparison:
+  id: "medgemma-4b-it-UD-Q8_K_XL"
+  path: "models/medgemma-4b-it-UD-Q8_K_XL.gguf"
+  size_gb: 4.81
+  quant: "Q8_K_XL"
+  runtime: "llama.cpp llama-server b10819 (same binary, swap --model)"
+  role: "ACTIVE comparison (medical-domain vs general)"
+  smoke: "OK 2026-09-05, gen 32.7 t/s GPU"
+
+third_model:
+  id: "Qwen3-8B-Q4_K_M"
+  path: "models/Qwen3-8B-Q4_K_M.gguf"
+  size_gb: 4.68
+  quant: "Q4_K_M"
+  runtime: "llama.cpp llama-server b10819"
+  role: "ACTIVE: stronger-reasoning comparison (user decision 2026-09-05; not in master plan, 8B)"
+  smoke: "OK 2026-09-05, gen 44.7 t/s GPU"
+  warning: "hybrid thinking model - engages <think> by default (burned 16 tokens thinking on 'Say OK'). MUST disable thinking for agent runs (/no_think or enable_thinking=false) for comparability + token accounting; reasoning vs answer tokens recorded separately if enabled"
+  vram_note: "4.7GB weights; verify ctx-8192 KV fit at serve time, fallback ctx 4096"
+
+model_matrix:
+  decision: "all three models run the full 5-role system (Table 2)"
+  runs: ["gemma-3-4b-it-UD-Q8_K_XL", "medgemma-4b-it-UD-Q8_K_XL", "Qwen3-8B-Q4_K_M"]
+  server: "one model at a time (single VRAM lock); swap --model between runs"
+
+llamacpp:
+  build: "b10819"
+  dir: "llama.cpp/bin"
+  server_exe: "llama.cpp/bin/llama-server.exe"
+  cuda: "12.4 (cudart DLLs via BITS download, required for GPU offload)"
+  start_cmd: "llama-server.exe --model <GGUF> --n-gpu-layers 99 --port 8080 --ctx-size 8192 --temp 0.2"
+  client: "tools/llm_client.py (OpenAI-compatible /v1/chat/completions)"
+
+embedder:
+  id: "nomic-embed-text"
+  runtime: "ollama (embeddings only - allowed; generative inference via llama.cpp)"
+  status: "already in ollama list (274MB)"
+  fallback_hf: "BAAI/bge-small-en-v1.5"
+
+hardware:
+  gpu: "NVIDIA GeForce RTX 5050 Laptop GPU"
+  vram_mib: 8151
+  ram_bytes: 16437858304
+  os: "Windows 11 Home 10.0.26200"

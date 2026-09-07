@@ -1,0 +1,4 @@
+Configuration,Model,Quantization,LLM Calls / Run,Tokens / Run,Avg Latency (s),Peak VRAM (MB),Gen Speed (t/s)
+LLM-only (Baseline 1),Gemma-3-4B-IT-Q8,Q8_K_XL,1,520,12.4,4919,38.3
+Single Tool-Agent (Baseline 2),Gemma-3-4B-IT-Q8,Q8_K_XL,1,780,15.1,4919,37.8
+Full 5-Agent (BioAgent-Lite),Gemma-3-4B-IT-Q8,Q8_K_XL,2,1850,24.8,4919,38.5

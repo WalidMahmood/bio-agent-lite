@@ -1,0 +1,4 @@
+System Architecture,Planner,Tools,Biology Role,Evidence Grounding,Critic / Verifier,DE Precision,DE Recall,DE F1,Statistical Accuracy,Evidence Support Rate,Hallucination Rate
+LLM-only (Baseline 1),No,No,Implicit,No,No,0.2,0.04,0.0667,0.125,0.0,1.4
+Single Tool-Agent (Baseline 2),No,Yes,Implicit,Partial,No,1.0,0.6,0.75,1.0,0.5,0.0
+Full 5-Agent (BioAgent-Lite),Yes,Yes,Yes (Specialized),Yes (Explicit),Yes (Bounded Loop),1.0,1.0,1.0,1.0,0.5556,0.0
