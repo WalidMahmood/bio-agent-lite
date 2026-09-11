@@ -67,7 +67,7 @@ def verify(
             else:
                 hit = gene_map[g_clean]
                 # Stat Trap Check (padj confusion)
-                if claim.type == "observed" or "significan" in statement.lower():
+                if hit.padj is not None and (claim.type == "observed" or "significan" in statement.lower()):
                     if hit.padj >= padj_thresh:
                         errors.append(
                             f"{g_clean} claimed significant but padj={hit.padj:.2g} >= {padj_thresh} (statistical trap / padj confusion)"

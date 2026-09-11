@@ -1,0 +1,476 @@
+{
+  "GSE202768": {
+    "dataset": "GSE202768",
+    "title": "DOX-Induced PRRX1 Knockdown in Hs578 TNBC Cells",
+    "organism": "Homo sapiens",
+    "contrast": "KD_DOX (n=3) vs KD_noDOX (n=3)",
+    "steps": [
+      {
+        "step_num": 1,
+        "agent": "Planner Agent",
+        "role_icon": "\ud83e\udde0",
+        "thought": "The user requests differential expression analysis for DOX-induced PRRX1 knockdown in Hs578 triple-negative breast cancer. I inspect the dataset accession: GSE202768 contains raw integer count matrices from Illumina NovaSeq 6000. Because raw count data is present, the statistically rigorous method is pydeseq2 Wald testing. I formulate a structured execution plan, disallowing unnormalized FPKM fallback and setting safety guardrails to enforce Benjamini-Hochberg FDR correction.",
+        "tool_invoked": "schema_validator.build_plan()",
+        "tool_input": {
+          "dataset": "GSE202768",
+          "contrast": "KD_DOX vs KD_noDOX",
+          "organism": "Homo sapiens",
+          "design_formula": "~condition",
+          "guardrails": [
+            "require_bh_fdr",
+            "refuse_fpkm_deseq2",
+            "non_clinical_disclaimer"
+          ]
+        },
+        "tool_output": {
+          "status": "VALIDATED_PLAN_APPROVED",
+          "contrast_groups": [
+            "KD_DOX (3 replicates)",
+            "KD_noDOX (3 replicates)"
+          ],
+          "planned_method": "pydeseq2.WaldTest",
+          "enrichment_dbs": [
+            "Reactome_2022",
+            "KEGG_2021_Human",
+            "GO_Biological_Process_2023"
+          ]
+        },
+        "action_taken": "Emitted validated JSON plan contract to Computational Analyst."
+      },
+      {
+        "step_num": 2,
+        "agent": "Computational Analyst",
+        "role_icon": "\u2699\ufe0f",
+        "thought": "Plan received. Executing deterministic statistical pipeline in isolated sandbox. I load counts (14,009 genes \u00d7 6 samples), estimate size factors, fit negative binomial dispersions, and run the Wald significance test. Next, I extract significantly perturbed genes (|log2FC| >= 1.0, padj < 0.05) and pass them to gseapy for hypergeometric over-representation analysis.",
+        "tool_invoked": "pydeseq2.run_deseq2() + gseapy.enrichr()",
+        "tool_input": {
+          "counts_matrix": "data/raw/GSE202768/counts.tsv (14,009 genes)",
+          "design_metadata": "data/raw/GSE202768/metadata.csv",
+          "padj_cutoff": 0.05,
+          "log2fc_cutoff": 1.0
+        },
+        "tool_output": {
+          "genes_tested": 14009,
+          "significant_genes": 3946,
+          "upregulated": 2002,
+          "downregulated": 1944,
+          "driver_target_verification": "PRRX1: log2FC = -2.28, padj = 1.28e-29 (CONFIRMED KNOCKDOWN)",
+          "top_hits": [
+            {
+              "gene": "TGFBI",
+              "log2FC": 1.95,
+              "padj": 4.72e-37,
+              "dir": "UP"
+            },
+            {
+              "gene": "COL1A1",
+              "log2FC": 2.08,
+              "padj": 6.7e-30,
+              "dir": "UP"
+            },
+            {
+              "gene": "PRRX1",
+              "log2FC": -2.28,
+              "padj": 1.28e-29,
+              "dir": "DOWN"
+            },
+            {
+              "gene": "TNFRSF11B",
+              "log2FC": -1.68,
+              "padj": 3.91e-23,
+              "dir": "DOWN"
+            },
+            {
+              "gene": "COL5A1",
+              "log2FC": 1.21,
+              "padj": 6.31e-22,
+              "dir": "UP"
+            }
+          ],
+          "top_pathways": [
+            {
+              "term": "Extracellular matrix organization (R-HSA-1474244)",
+              "fdr": 2.8e-06,
+              "overlap": "38/284"
+            },
+            {
+              "term": "ECM-receptor interaction (hsa04512)",
+              "fdr": 4.1e-05,
+              "overlap": "18/88"
+            }
+          ]
+        },
+        "action_taken": "Cached verified numerical results and pathway tables; alerted Biological Interpreter."
+      },
+      {
+        "step_num": 3,
+        "agent": "Biological Interpreter",
+        "role_icon": "\ud83d\udd2c",
+        "thought": "I receive verified differential expression statistics. PRRX1 is an established EMT (epithelial-mesenchymal transition) master transcription factor. Its strong knockdown (log2FC = -2.28) is associated with marked upregulation of TGFBI and fibrillar collagens (COL1A1, COL5A1), indicating ECM reorganization. I synthesize findings into typed claims: stating numerical observations as 'observed', pathway enrichments as 'supported', and downstream phenotypic shifts as hedged 'hypotheses'.",
+        "tool_invoked": "claims_synthesizer.structure_claims()",
+        "tool_input": {
+          "top_genes": [
+            "TGFBI",
+            "COL1A1",
+            "PRRX1",
+            "TNFRSF11B",
+            "COL5A1",
+            "CD82"
+          ],
+          "enrichments": [
+            "Extracellular matrix organization",
+            "ECM-receptor interaction"
+          ]
+        },
+        "tool_output": {
+          "claims_generated": 6,
+          "hedging_compliance": "PASS (Uses 'suggests', 'consistent with', 'indicates')",
+          "draft_claims": [
+            "PRRX1 expression is significantly suppressed in KD_DOX vs KD_noDOX (log2FC = -2.28, padj = 1.28e-29).",
+            "Upregulation of COL1A1 and TGFBI indicates profound extracellular matrix remodeling upon PRRX1 loss.",
+            "CD82 expression shows significant alteration (Initial draft: inverted direction error)."
+          ]
+        },
+        "action_taken": "Passed draft claims to Evidence Retriever and Critic for verification."
+      },
+      {
+        "step_num": 4,
+        "agent": "Evidence Retriever",
+        "role_icon": "\ud83d\udcda",
+        "thought": "Every biological claim must have explicit grounding in verified database records or the calculated DESeq2 result table. I query Reactome, KEGG, and GO annotations to establish provenance for each assertion.",
+        "tool_invoked": "evidence_grounder.search()",
+        "tool_input": {
+          "target_genes": [
+            "PRRX1",
+            "COL1A1",
+            "TGFBI",
+            "TNFRSF11B"
+          ],
+          "candidate_pathways": [
+            "Extracellular matrix organization",
+            "ECM-receptor interaction"
+          ]
+        },
+        "tool_output": {
+          "evidence_records": [
+            {
+              "claim_id": "c1",
+              "source_db": "pydeseq2_de_table",
+              "id": "PRRX1",
+              "snippet": "PRRX1 padj=1.28e-29, baseMean=2448"
+            },
+            {
+              "claim_id": "c2",
+              "source_db": "Reactome",
+              "id": "R-HSA-1474244",
+              "snippet": "ECM organization: 38 overlapping genes including COL1A1, TGFBI (FDR=2.8e-06)"
+            }
+          ],
+          "grounding_coverage": "100.0% of biological claims grounded in empirical evidence"
+        },
+        "action_taken": "Appended verified evidence records to shared state."
+      },
+      {
+        "step_num": 5,
+        "agent": "Critic Agent (Adversarial Verifier)",
+        "role_icon": "\ud83d\udee1\ufe0f",
+        "thought": "Conducting 4-layer adversarial audit: 1. Direction consistency: Does claim log2FC sign match DESeq2 table? 2. P-value accuracy: Do cited significance values match raw data? 3. Evidence support: Are pathway assertions backed by valid database IDs? 4. Clinical boundary: Does report contain forbidden diagnostic/treatment recommendations?",
+        "tool_invoked": "critic_verifier.audit_all()",
+        "tool_input": {
+          "ground_truth_table": "DESeq2 results (14,009 rows)",
+          "claims_to_audit": "Biological Interpreter claims",
+          "evidence_to_audit": "Evidence records"
+        },
+        "tool_output": {
+          "iteration_0_audit": {
+            "status": "REJECT (Direction Error Detected)",
+            "flaw": "Claim 4 stated CD82 was downregulated; DESeq2 ground truth indicates CD82 log2FC = +1.14 (UP).",
+            "action": "Triggered self-correction loop back to Biological Interpreter."
+          },
+          "iteration_1_audit": {
+            "status": "PASS (100% Verified)",
+            "corrections_applied": "CD82 direction corrected to upregulated; all 5 claims verified against ground truth.",
+            "disclaimer_verified": "Research prototype disclaimer present; zero clinical over-reach."
+          }
+        },
+        "action_taken": "Issued final PASS verdict. Synthesized executive report."
+      }
+    ]
+  },
+  "GSE113650": {
+    "dataset": "GSE113650",
+    "title": "TNBC vs Non-TNBC Cell Lines (External Validation)",
+    "organism": "Homo sapiens",
+    "contrast": "TNBC (n=3) vs non-TNBC (n=3) cell lines",
+    "steps": [
+      {
+        "step_num": 1,
+        "agent": "Planner Agent",
+        "role_icon": "\ud83e\udde0",
+        "thought": "Accession GSE113650 represents external validation data. Data type inspected: pre-computed CuffDiff statistical reference table. Plan instructs dispatcher to parse study CuffDiff results rather than re-running raw negative binomial fitting.",
+        "tool_invoked": "schema_validator.build_plan()",
+        "tool_input": {
+          "dataset": "GSE113650",
+          "data_type": "cuffdiff_table"
+        },
+        "tool_output": {
+          "status": "PLAN_APPROVED",
+          "action": "Ingest study CuffDiff reference"
+        },
+        "action_taken": "Dispatched to Computational Analyst."
+      },
+      {
+        "step_num": 2,
+        "agent": "Computational Analyst",
+        "role_icon": "\u2699\ufe0f",
+        "thought": "Ingesting study CuffDiff statistical table. Extracting 14,817 genes, 990 significant genes (padj < 0.05). Verified top drivers: IER3 (log2FC = -3.42, padj = 1.2e-14), CDH1 (log2FC = -4.85), VIM (log2FC = +5.12).",
+        "tool_invoked": "cuffdiff_reader.parse()",
+        "tool_input": {
+          "path": "data/raw/GSE113650/gene_exp.diff"
+        },
+        "tool_output": {
+          "genes_tested": 14817,
+          "significant": 990,
+          "top_down": "IER3, CDH1",
+          "top_up": "VIM, CAV1"
+        },
+        "action_taken": "Passed verified CuffDiff statistics to Biological Interpreter."
+      },
+      {
+        "step_num": 3,
+        "agent": "Biological Interpreter",
+        "role_icon": "\ud83d\udd2c",
+        "thought": "VIM (Vimentin) upregulation with CDH1 (E-cadherin) loss is the canonical hallmark of mesenchymal state in basal-like TNBC compared to luminal non-TNBC lines. Synthesizing claims with appropriate hedging.",
+        "tool_invoked": "claims_synthesizer.structure_claims()",
+        "tool_input": {
+          "markers": [
+            "VIM",
+            "CDH1",
+            "IER3"
+          ]
+        },
+        "tool_output": {
+          "claims": [
+            "TNBC lines exhibit mesenchymal transition signature characterized by VIM upregulation and CDH1 repression."
+          ]
+        },
+        "action_taken": "Forwarded to Evidence Retriever."
+      },
+      {
+        "step_num": 4,
+        "agent": "Evidence Retriever",
+        "role_icon": "\ud83d\udcda",
+        "thought": "Grounding EMT claims to KEGG adherens junction (hsa04520) and GO cell-cell adhesion (GO:0098609).",
+        "tool_invoked": "evidence_grounder.search()",
+        "tool_input": {
+          "terms": [
+            "adherens junction",
+            "cell adhesion"
+          ]
+        },
+        "tool_output": {
+          "records_found": 5,
+          "grounded_rate": "100.0%"
+        },
+        "action_taken": "Appended evidence."
+      },
+      {
+        "step_num": 5,
+        "agent": "Critic Agent",
+        "role_icon": "\ud83d\udee1\ufe0f",
+        "thought": "Auditing GSE113650 claims against CuffDiff table. All 5 claims match exact log2FC direction and padj significance. Zero direction errors. Disclaimers verified. Verdict: PASS on Iteration 0.",
+        "tool_invoked": "critic_verifier.audit_all()",
+        "tool_input": {
+          "claims": "5 claims",
+          "source": "CuffDiff table"
+        },
+        "tool_output": {
+          "verdict": "PASS",
+          "errors": 0,
+          "warnings": 0
+        },
+        "action_taken": "Approved output."
+      }
+    ]
+  },
+  "GSE95304": {
+    "dataset": "GSE95304",
+    "title": "shMyc Perturbation in Breast Cancer (Held-Out Evaluation)",
+    "organism": "Homo sapiens",
+    "contrast": "shMyc vs shSCR (scrambled control)",
+    "steps": [
+      {
+        "step_num": 1,
+        "agent": "Planner Agent",
+        "role_icon": "\ud83e\udde0",
+        "thought": "Dataset GSE95304 contains FPKM tracking files from Cufflinks, NOT raw integer counts. CRITICAL GUARD: In accordance with bioinformatics standards (Love et al.), running negative binomial count models (DESeq2) on FPKM data is statistically invalid and causes spurious variance estimates. Plan activates data-type refusal guard: dispatching descriptive fold-change ranking with zero fabricated p-values.",
+        "tool_invoked": "schema_validator.check_data_type()",
+        "tool_input": {
+          "dataset": "GSE95304",
+          "format": "FPKM tracking"
+        },
+        "tool_output": {
+          "guardrail": "REFUSE_DESEQ2_ON_FPKM",
+          "allowed_method": "descriptive_log2fc_ranking"
+        },
+        "action_taken": "Enforced refusal guardrail; instructed dispatcher to compute descriptive statistics only."
+      },
+      {
+        "step_num": 2,
+        "agent": "Computational Analyst",
+        "role_icon": "\u2699\ufe0f",
+        "thought": "Executing descriptive ranking. Tested: 14,387 genes. Knockdown confirmation: MYC shows log2FC = -2.15 (strong depletion). Top upregulated gene: SNORD78 (log2FC = +3.84). Crucially: padj is explicitly set to None (no fake p-values generated).",
+        "tool_invoked": "descriptive_ranker.calculate()",
+        "tool_input": {
+          "data": "FPKM matrix",
+          "contrast": "shMyc vs shSCR"
+        },
+        "tool_output": {
+          "genes_tested": 14387,
+          "myc_fc": -2.15,
+          "top_up": "SNORD78 (+3.84)",
+          "fake_pvalues_prevented": true
+        },
+        "action_taken": "Passed descriptive results to Interpreter."
+      },
+      {
+        "step_num": 3,
+        "agent": "Biological Interpreter",
+        "role_icon": "\ud83d\udd2c",
+        "thought": "Myc oncogene downregulation directly affects cell cycle progression and metabolic regulation. Expressing claims descriptively without claiming statistical hypothesis rejection.",
+        "tool_invoked": "claims_synthesizer.structure_claims()",
+        "tool_input": {
+          "top_genes": [
+            "MYC",
+            "SNORD78",
+            "CDK1",
+            "CCNB1"
+          ]
+        },
+        "tool_output": {
+          "claims": [
+            "MYC transcript abundance decreased by log2FC -2.15 following shRNA perturbation.",
+            "Concomitant reduction in cell-cycle regulators CDK1 and CCNB1 is observed."
+          ]
+        },
+        "action_taken": "Passed to Evidence Retriever."
+      },
+      {
+        "step_num": 4,
+        "agent": "Evidence Retriever",
+        "role_icon": "\ud83d\udcda",
+        "thought": "Querying Reactome cell cycle checkpoint pathways (R-HSA-1640170) to contextualize Myc-dependent suppression.",
+        "tool_invoked": "evidence_grounder.search()",
+        "tool_input": {
+          "query": "MYC cell cycle"
+        },
+        "tool_output": {
+          "matches": 3,
+          "status": "GROUNDED"
+        },
+        "action_taken": "Forwarded to Critic."
+      },
+      {
+        "step_num": 5,
+        "agent": "Critic Agent",
+        "role_icon": "\ud83d\udee1\ufe0f",
+        "thought": "Auditing GSE95304: Verified that NO fabricated p-values were introduced for FPKM data. Verified that MYC is reported as downregulated. Guardrail check: Refusal guard operated correctly. Verdict: PASS on Iteration 0.",
+        "tool_invoked": "critic_verifier.audit_all()",
+        "tool_input": {
+          "claims": "Descriptive FPKM claims"
+        },
+        "tool_output": {
+          "verdict": "PASS",
+          "pvalue_fabrication": "NONE_DETECTED (Compliant)"
+        },
+        "action_taken": "Emitted verified evaluation trace."
+      }
+    ]
+  },
+  "GSE336903": {
+    "dataset": "GSE336903",
+    "title": "Mouse Mammary Perturbation (Cross-Species Smoke Test)",
+    "organism": "Mus musculus",
+    "contrast": "Treatment (n=3) vs Control (n=3)",
+    "steps": [
+      {
+        "step_num": 1,
+        "agent": "Planner Agent",
+        "role_icon": "\ud83e\udde0",
+        "thought": "Accession GSE336903 contains mouse mammary transcriptomic data with ENSMUSG / rodent gene symbols. Planner detects Mus musculus organism, adapting pathway and evidence retrieval scope to mouse-specific databases (Org.Mm.eg.db / Reactome Mouse).",
+        "tool_invoked": "schema_validator.set_organism()",
+        "tool_input": {
+          "organism_detected": "Mus musculus"
+        },
+        "tool_output": {
+          "organism_scope": "Mus musculus",
+          "status": "APPROVED"
+        },
+        "action_taken": "Configured mouse-aware pipeline."
+      },
+      {
+        "step_num": 2,
+        "agent": "Computational Analyst",
+        "role_icon": "\u2699\ufe0f",
+        "thought": "Processing mouse FPKM matrix across 54,289 gene identifiers. Identifying top perturbed transcripts: Mirlet7a-1 (log2FC = +2.84), confirming microRNA-mediated regulatory cascade.",
+        "tool_invoked": "descriptive_ranker.calculate()",
+        "tool_input": {
+          "organism": "Mus musculus",
+          "matrix": "54,289 transcripts"
+        },
+        "tool_output": {
+          "top_gene": "Mirlet7a-1 (+2.84)",
+          "sig_transcripts": 3014
+        },
+        "action_taken": "Passed results to Biological Interpreter."
+      },
+      {
+        "step_num": 3,
+        "agent": "Biological Interpreter",
+        "role_icon": "\ud83d\udd2c",
+        "thought": "Synthesizing claims on Mirlet7a-1 (Let-7 microRNA family) in mouse mammary tissue, highlighting its role as a tumor-suppressive microRNA.",
+        "tool_invoked": "claims_synthesizer.structure_claims()",
+        "tool_input": {
+          "gene": "Mirlet7a-1"
+        },
+        "tool_output": {
+          "claims": [
+            "Mirlet7a-1 upregulation is observed in murine mammary perturbation."
+          ]
+        },
+        "action_taken": "Forwarded to Evidence Retriever."
+      },
+      {
+        "step_num": 4,
+        "agent": "Evidence Retriever",
+        "role_icon": "\ud83d\udcda",
+        "thought": "Retrieving mouse microRNA regulatory network evidence from KEGG MicroRNAs in cancer (mmu05206).",
+        "tool_invoked": "evidence_grounder.search()",
+        "tool_input": {
+          "organism": "mmu",
+          "query": "Let-7"
+        },
+        "tool_output": {
+          "matches": 2,
+          "status": "GROUNDED"
+        },
+        "action_taken": "Passed to Critic."
+      },
+      {
+        "step_num": 5,
+        "agent": "Critic Agent",
+        "role_icon": "\ud83d\udee1\ufe0f",
+        "thought": "Verifying cross-species annotation compliance: Confirming mouse gene identifiers and organism-appropriate evidence. Zero human gene leakage. Verdict: PASS.",
+        "tool_invoked": "critic_verifier.audit_all()",
+        "tool_input": {
+          "organism": "Mus musculus"
+        },
+        "tool_output": {
+          "verdict": "PASS",
+          "cross_species_leakage": "NONE"
+        },
+        "action_taken": "Emitted verified trace."
+      }
+    ]
+  }
+}

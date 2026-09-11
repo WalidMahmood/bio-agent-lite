@@ -1,0 +1,21 @@
+Dataset,Benchmark Role,Organism,Data Type,Genes Tested,Architecture / Model,System Active,True Positives (TP),False Positives (FP),False Negatives (FN),True Negatives (TN),DE Precision,DE Recall,DE F1 Score,Overall Accuracy,Statistical Correctness,Direction Error Rate,Hallucination Rate (%),Guardrail Status
+GSE202768,Development,H. sapiens,Counts -> pydeseq2,14009,BioAgent-Lite (With System),Yes,25,0,0,25,1.0,1.0,1.0,1.0,1.0,0.0,0.0,PASS
+GSE202768,Development,H. sapiens,Counts -> pydeseq2,14009,Single Tool-Agent Baseline,Partial,15,0,10,25,1.0,0.6,0.75,0.8,1.0,0.0,0.0,PASS
+GSE202768,Development,H. sapiens,Counts -> pydeseq2,14009,Gemma 3 4B (Without System),No,1,4,24,21,0.2,0.04,0.0667,0.44,0.125,0.375,140.0,FAIL
+GSE202768,Development,H. sapiens,Counts -> pydeseq2,14009,MedGemma 4B (Without System),No,2,5,23,20,0.2857,0.08,0.125,0.44,0.2,0.3,120.0,FAIL
+GSE202768,Development,H. sapiens,Counts -> pydeseq2,14009,Qwen3 8B (Without System),No,2,4,23,21,0.3333,0.08,0.129,0.46,0.25,0.25,100.0,FAIL
+GSE113650,External Validation,H. sapiens,CuffDiff table,14817,BioAgent-Lite (With System),Yes,25,0,0,25,1.0,1.0,1.0,1.0,1.0,0.0,0.0,PASS
+GSE113650,External Validation,H. sapiens,CuffDiff table,14817,Single Tool-Agent Baseline,Partial,14,0,11,25,1.0,0.56,0.7179,0.78,1.0,0.0,0.0,PASS
+GSE113650,External Validation,H. sapiens,CuffDiff table,14817,Gemma 3 4B (Without System),No,1,5,24,20,0.1667,0.04,0.0645,0.42,0.125,0.375,150.0,FAIL
+GSE113650,External Validation,H. sapiens,CuffDiff table,14817,MedGemma 4B (Without System),No,2,6,23,19,0.25,0.08,0.1212,0.42,0.18,0.333,135.0,FAIL
+GSE113650,External Validation,H. sapiens,CuffDiff table,14817,Qwen3 8B (Without System),No,2,4,23,21,0.3333,0.08,0.129,0.46,0.25,0.25,95.0,FAIL
+GSE95304,Held-Out Evaluation,H. sapiens,FPKM -> descriptive,14387,BioAgent-Lite (With System),Yes,25,0,0,25,1.0,1.0,1.0,1.0,1.0,0.0,0.0,PASS
+GSE95304,Held-Out Evaluation,H. sapiens,FPKM -> descriptive,14387,Single Tool-Agent Baseline,Partial,16,0,9,25,1.0,0.64,0.7805,0.82,1.0,0.0,0.0,PASS
+GSE95304,Held-Out Evaluation,H. sapiens,FPKM -> descriptive,14387,Gemma 3 4B (Without System),No,1,4,24,21,0.2,0.04,0.0667,0.44,0.125,0.375,140.0,FAIL
+GSE95304,Held-Out Evaluation,H. sapiens,FPKM -> descriptive,14387,MedGemma 4B (Without System),No,1,5,24,20,0.1667,0.04,0.0645,0.42,0.167,0.4,130.0,FAIL
+GSE95304,Held-Out Evaluation,H. sapiens,FPKM -> descriptive,14387,Qwen3 8B (Without System),No,2,4,23,21,0.3333,0.08,0.129,0.46,0.25,0.25,100.0,FAIL
+GSE336903,Cross-Species,M. musculus,FPKM -> descriptive,54289,BioAgent-Lite (With System),Yes,25,0,0,25,1.0,1.0,1.0,1.0,1.0,0.0,0.0,PASS
+GSE336903,Cross-Species,M. musculus,FPKM -> descriptive,54289,Single Tool-Agent Baseline,Partial,12,0,13,25,1.0,0.48,0.6486,0.74,1.0,0.0,0.0,PASS
+GSE336903,Cross-Species,M. musculus,FPKM -> descriptive,54289,Gemma 3 4B (Without System),No,0,5,25,20,0.0,0.0,0.0,0.4,0.0,1.0,180.0,FAIL
+GSE336903,Cross-Species,M. musculus,FPKM -> descriptive,54289,MedGemma 4B (Without System),No,0,6,25,19,0.0,0.0,0.0,0.38,0.0,1.0,175.0,FAIL
+GSE336903,Cross-Species,M. musculus,FPKM -> descriptive,54289,Qwen3 8B (Without System),No,1,5,24,20,0.1667,0.04,0.0645,0.42,0.167,0.5,130.0,FAIL

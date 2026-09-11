@@ -42,7 +42,7 @@ class Plan(BaseModel):
 class TopGene(BaseModel):
     gene: str
     log2FC: float
-    padj: float
+    padj: Optional[float] = None
     pvalue: Optional[float] = None
     direction: Literal["up", "down"]
 

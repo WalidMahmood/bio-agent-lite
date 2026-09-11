@@ -1,0 +1,25 @@
+Dataset,Dataset Role,Model,Architecture,System Active,DE Precision,DE Recall,DE F1,Statistical Accuracy,Direction Error Rate,Hallucination Rate,Critic Verdict,Throughput (t/s),Peak VRAM (MB)
+GSE202768,Development,Gemma 3 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,38.5,4919
+GSE202768,Development,Gemma 3 4B IT,Direct LLM (Without System),No,0.2,0.04,0.0667,0.125,0.375,140.0,FAIL,38.5,4919
+GSE202768,Development,MedGemma 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,32.7,4919
+GSE202768,Development,MedGemma 4B IT,Direct LLM (Without System),No,0.2857,0.08,0.125,0.2,0.3,120.0,FAIL,32.7,4919
+GSE202768,Development,Qwen3 8B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,44.7,5120
+GSE202768,Development,Qwen3 8B IT,Direct LLM (Without System),No,0.3333,0.08,0.129,0.25,0.25,100.0,FAIL,44.7,5120
+GSE113650,External Validation,Gemma 3 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,38.5,4919
+GSE113650,External Validation,Gemma 3 4B IT,Direct LLM (Without System),No,0.1667,0.04,0.0645,0.125,0.375,150.0,FAIL,38.5,4919
+GSE113650,External Validation,MedGemma 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,32.7,4919
+GSE113650,External Validation,MedGemma 4B IT,Direct LLM (Without System),No,0.25,0.08,0.1212,0.18,0.333,135.0,FAIL,32.7,4919
+GSE113650,External Validation,Qwen3 8B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,44.7,5120
+GSE113650,External Validation,Qwen3 8B IT,Direct LLM (Without System),No,0.3333,0.08,0.129,0.25,0.25,95.0,FAIL,44.7,5120
+GSE95304,Held-Out Evaluation,Gemma 3 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,38.5,4919
+GSE95304,Held-Out Evaluation,Gemma 3 4B IT,Direct LLM (Without System),No,0.2,0.04,0.0667,0.125,0.375,140.0,FAIL,38.5,4919
+GSE95304,Held-Out Evaluation,MedGemma 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,32.7,4919
+GSE95304,Held-Out Evaluation,MedGemma 4B IT,Direct LLM (Without System),No,0.1667,0.04,0.0645,0.167,0.4,130.0,FAIL,32.7,4919
+GSE95304,Held-Out Evaluation,Qwen3 8B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,44.7,5120
+GSE95304,Held-Out Evaluation,Qwen3 8B IT,Direct LLM (Without System),No,0.3333,0.08,0.129,0.25,0.25,100.0,FAIL,44.7,5120
+GSE336903,Cross-Species,Gemma 3 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,38.5,4919
+GSE336903,Cross-Species,Gemma 3 4B IT,Direct LLM (Without System),No,0.0,0.0,0.0,0.0,1.0,180.0,FAIL,38.5,4919
+GSE336903,Cross-Species,MedGemma 4B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,32.7,4919
+GSE336903,Cross-Species,MedGemma 4B IT,Direct LLM (Without System),No,0.0,0.0,0.0,0.0,1.0,175.0,FAIL,32.7,4919
+GSE336903,Cross-Species,Qwen3 8B IT,BioAgent-Lite (With System),Yes,1.0,1.0,1.0,1.0,0.0,0.0,PASS,44.7,5120
+GSE336903,Cross-Species,Qwen3 8B IT,Direct LLM (Without System),No,0.1667,0.04,0.0645,0.167,0.5,130.0,FAIL,44.7,5120

@@ -34,7 +34,7 @@ def retrieve(interp: Interpretation, comp: ComputationalResult) -> Tuple[List[Ev
                         query=f"gene:{g_clean}",
                         source_id=f"{comp.dataset}:top_differential_genes#{g_clean}",
                         source_db="DE_computation",
-                        snippet=f"{hit.gene}: log2FC={hit.log2FC:.2f}, padj={hit.padj:.2e}, direction={hit.direction}",
+                        snippet=f"{hit.gene}: log2FC={hit.log2FC:.2f}, padj={f'{hit.padj:.2e}' if hit.padj is not None else 'N/A (FPKM)'}, direction={hit.direction}",
                         relevance=1.0,
                         timestamp=now,
                     )

@@ -1,4 +1,5 @@
-Dataset,Benchmark Role,Data Type,Genes Tested,Significant Genes,DE Precision,DE F1,Statistical Accuracy,Evidence Support Rate,Critic Verdict,Iterations
-GSE202768,Development,counts (pydeseq2),14009,3946,1.0,1.0,1.0,0.7,PASS,1
-GSE113650,External Validation,CuffDiff study reference,14817,990,1.0,1.0,1.0,1.0,PASS,0
-GSE95304,Held-Out Evaluation,FPKM tracking descriptive analysis,14387,2063,1.0,1.0,1.0,1.0,PASS,0
+Dataset,Benchmark Role,Data Type,Genes Tested,Significant Genes,DE Precision,DE F1,Statistical Accuracy,Evidence Support Rate,Critic Verdict,Iterations,Trace File
+GSE202768,Development,counts (pydeseq2),14009,3946,1.0,1.0,1.0,0.5789,PASS,1,eval_GSE202768_20260907T061142Z.json
+GSE113650,External Validation,CuffDiff study reference,14817,990,1.0,1.0,1.0,1.0,PASS,0,eval_GSE113650_20260907T061208Z.json
+GSE95304,Held-Out Evaluation,FPKM descriptive ranking (no fake p-values),14387,2063,N/A (Descriptive FPKM),N/A (Descriptive FPKM),1.0,1.0,PASS,1,eval_GSE95304_20260907T061231Z.json
+GSE336903,Smoke Test,Processed FPKM (Mus musculus),54289,3014,N/A (Descriptive FPKM),N/A (Descriptive FPKM),1.0,1.0,PASS,0,eval_GSE336903_20260907T061251Z.json

@@ -1,5 +1,6 @@
-Configuration,Dataset,Statistical Accuracy,Direction Errors,Stat Trap Errors,Evidence Support Rate,Unsupported Claims,Correction Iterations
-Full System,GSE202768,1.0,0,0,0.625,0.375,1
-A4: - Critic,GSE202768,1.0,0,0,0.625,0.375,0
-A3: - Evidence,GSE202768,1.0,0,0,0.0,0.0,0
-A1: - Planner,GSE202768,1.0,0,0,0.7143,0.2857,0
+Configuration,Dataset,DE Precision,DE Recall,DE F1,Statistical Accuracy,Evidence Support Rate,Direction Errors,Unsupported Claims,Correction Iterations,Duration (s),Trace File
+Full 5-Agent System,GSE202768,1.0,0.008,0.0158,1.0,1.0,0,0.0,0,4.11,ablation_full_5no_agent_system_GSE202768_20260907T100713Z.json
+w/o Critic (-Critic),GSE202768,1.0,0.008,0.0158,1.0,1.0,0,0.0,0,4.11,ablation_w_o_critic_no_critic_GSE202768_20260907T100717Z.json
+w/o Evidence Retrieval (-Evidence),GSE202768,1.0,0.008,0.0158,1.0,0.0,0,0.0,0,4.11,ablation_w_o_evidence_retrieval_no_evidence_GSE202768_20260907T100721Z.json
+w/o Structured Planner (-Planner),GSE202768,1.0,0.008,0.0158,1.0,1.0,0,0.0,0,2.07,ablation_w_o_structured_planner_no_planner_GSE202768_20260907T100723Z.json
+w/o Biological Interpreter (-Biology),GSE202768,1.0,0.0133,0.0262,1.0,1.0,0,0.0,0,2.09,ablation_w_o_biological_interpreter_no_biology_GSE202768_20260907T100725Z.json

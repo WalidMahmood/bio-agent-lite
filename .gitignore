@@ -1,4 +1,4 @@
-# Python
+# Python & Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
@@ -7,23 +7,72 @@ __pycache__/
 env/
 venv/
 .venv/
+*.egg-info/
+dist/
+build/
 
-# Large Model Weights (Keep local paths, do not commit 5GB GGUFs to Git)
-models/*.gguf
-models/*-UD-Q8_K_XL.gguf
-chroma_data/
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
 
-# Logs & Temporary files
-*.log
-server.log
-server_err.log
+# Model Weights & Large Binaries (Master Plan: Keep local, do not commit GGUFs to Git)
+models/
+*.gguf
+*.bin
+*.pt
+*.pth
+*.safetensors
+llama.cpp/
 
-# Node & Frontend
+# Raw Genomic Data Archives & Big Data
+data/raw/
+*.tar
+*.tar.gz
+*.gz
+*.h5ad
+*.bam
+*.sam
+*.fastq
+
+# Local Reports & LaTeX Artifacts
+Term_Project_Report*
+*.aux
+*.out
+*.synctex.gz
+
+# Generator Scripts & Executed Scratch Notebooks
+scripts/
+notebooks/*_Executed.ipynb
+notebooks/generate_notebook.py
+notebooks/execute_notebook.py
+
+# Node & Frontend Build Artifacts
 frontend/node_modules/
 frontend/dist/
-.DS_Store
-Thumbs.db
+frontend/.next/
+frontend/*.tsbuildinfo
+frontend/src/**/*.tsbuildinfo
+.npm/
 
-# IDE & OS
+# Vector Stores & Embedding Caches
+chroma_data/
+.chroma/
+
+# Logs & Temporary Runtime Files
+*.log
+*.log.*
+server.log
+server_err.log
+.tempmediaStorage/
+.user_uploaded/
+.system_generated/
+scratch/
+
+# IDE & OS Files
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db

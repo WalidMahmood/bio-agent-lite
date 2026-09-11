@@ -1,0 +1,511 @@
+{
+  "question": "Evaluate differential expression comparing triple-negative breast cancer (TNBC) cell lines against non-TNBC receptor-positive lines and determine enriched pathways.",
+  "dataset": "GSE113650",
+  "plan": {
+    "analysis_goal": "Identify differentially expressed genes and pathways between triple-negative breast cancer (TNBC) cell lines and non-TNBC receptor-positive lines in GSE113650.",
+    "dataset": "GSE113650",
+    "organism": "Homo sapiens",
+    "data_type": "cuffdiff",
+    "comparison": {
+      "group_a": "TNBC",
+      "group_b": "nonTNBC"
+    },
+    "design": "~phenotype",
+    "de_method": "run_differential_expression (cuffdiff)",
+    "required_steps": [
+      "validate_metadata",
+      "run_differential_expression",
+      "run_enrichment",
+      "retrieve_evidence",
+      "verify_results"
+    ],
+    "safety_guardrails": [
+      "refuse_fpkm_deseq2",
+      "require_bh_fdr",
+      "require_hedged_hypothesis",
+      "non_clinical_disclaimer"
+    ]
+  },
+  "comp": {
+    "dataset": "GSE113650",
+    "data_type": "CuffDiff study reference",
+    "contrast": "TNBC (MDA-MB-468/HCC70/HCC1143) vs non-TNBC (MCF7/BT474/T47D)",
+    "n_total_tested": 14817,
+    "n_sig": 990,
+    "n_up": 689,
+    "n_down": 301,
+    "padj_threshold": 0.05,
+    "top_genes": [
+      {
+        "gene": "IER3",
+        "log2FC": 2.42676,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "IGFBP4",
+        "log2FC": -2.09596,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "down"
+      },
+      {
+        "gene": "IGSF23",
+        "log2FC": Infinity,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "IKZF3",
+        "log2FC": -7.32015,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "down"
+      },
+      {
+        "gene": "IL22RA2",
+        "log2FC": Infinity,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "IL32",
+        "log2FC": 4.45773,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "IRX1",
+        "log2FC": Infinity,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ITGA2",
+        "log2FC": 2.31487,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ITGA5",
+        "log2FC": 3.23577,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ITGA6",
+        "log2FC": 2.74382,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ITGB6",
+        "log2FC": 3.9113,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ITGB8",
+        "log2FC": 4.33233,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "JAG1",
+        "log2FC": 4.72916,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "KCNN4",
+        "log2FC": 3.80358,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "KCTD12",
+        "log2FC": 3.31451,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ARHGAP21",
+        "log2FC": 2.32853,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "APPBP2",
+        "log2FC": -3.75358,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "down"
+      },
+      {
+        "gene": "IFI6",
+        "log2FC": 5.08689,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "DHRS2",
+        "log2FC": -6.39991,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "down"
+      },
+      {
+        "gene": "DHRS3",
+        "log2FC": 4.6455,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "CACNB4",
+        "log2FC": -5.22782,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "down"
+      },
+      {
+        "gene": "AHR",
+        "log2FC": 2.40914,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "AK5",
+        "log2FC": Infinity,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "ALDH1A3",
+        "log2FC": 6.72765,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      },
+      {
+        "gene": "AMOT",
+        "log2FC": 3.66046,
+        "padj": 0.00250774,
+        "pvalue": 5e-05,
+        "direction": "up"
+      }
+    ],
+    "sig_pathways": [
+      {
+        "source": "Reactome",
+        "term": "Extracellular Matrix Organization R-HSA-1474244",
+        "adjP": 9.442694942630772e-09,
+        "overlap": "24/291"
+      },
+      {
+        "source": "Reactome",
+        "term": "Elastic Fibre Formation R-HSA-1566948",
+        "adjP": 2.9538686042305952e-05,
+        "overlap": "8/39"
+      },
+      {
+        "source": "Reactome",
+        "term": "Assembly Of Collagen Fibrils And Other Multimeric Structures R-HSA-2022090",
+        "adjP": 0.0004185561505201,
+        "overlap": "8/57"
+      },
+      {
+        "source": "Reactome",
+        "term": "Molecules Associated With Elastic Fibres R-HSA-2129379",
+        "adjP": 0.0004760529883066,
+        "overlap": "6/28"
+      },
+      {
+        "source": "Reactome",
+        "term": "Laminin Interactions R-HSA-3000157",
+        "adjP": 0.0019325206228184,
+        "overlap": "5/22"
+      },
+      {
+        "source": "Reactome",
+        "term": "Non-integrin membrane-ECM Interactions R-HSA-3000171",
+        "adjP": 0.0028058458442033,
+        "overlap": "6/41"
+      },
+      {
+        "source": "Reactome",
+        "term": "Dissolution Of Fibrin Clot R-HSA-75205",
+        "adjP": 0.0028058458442033,
+        "overlap": "4/13"
+      },
+      {
+        "source": "Reactome",
+        "term": "MET Promotes Cell Motility R-HSA-8875878",
+        "adjP": 0.0035388355632442,
+        "overlap": "5/28"
+      },
+      {
+        "source": "Reactome",
+        "term": "Integrin Cell Surface Interactions R-HSA-216083",
+        "adjP": 0.0035388355632442,
+        "overlap": "7/66"
+      },
+      {
+        "source": "Reactome",
+        "term": "Collagen Formation R-HSA-1474290",
+        "adjP": 0.0035388355632442,
+        "overlap": "8/90"
+      }
+    ],
+    "execution_log": [
+      "Imported study CuffDiff statistical outputs",
+      "Filtered 14817 successfully tested genes",
+      "Identified 990 significant genes at q_value < 0.05",
+      "Loaded real gseapy Reactome & KEGG enrichment results"
+    ]
+  },
+  "interp": {
+    "observations": [
+      "990 genes significant at padj < 0.05 in TNBC (MDA-MB-468/HCC70/HCC1143) vs non-TNBC (MCF7/BT474/T47D).",
+      "Strongest differential hit by adjusted significance: IER3."
+    ],
+    "claims": [
+      {
+        "statement": "990 genes reached significance threshold (padj<0.05) with 689 up-regulated and 301 down-regulated in TNBC (MDA-MB-468/HCC70/HCC1143) vs non-TNBC (MCF7/BT474/T47D).",
+        "type": "observed",
+        "genes": [
+          "IER3",
+          "IGFBP4",
+          "IGSF23"
+        ],
+        "pathways": [],
+        "hedged": true
+      },
+      {
+        "statement": "Top enriched biological process is Extracellular Matrix Organization R-HSA-1474244, supported by multiple differential transcripts.",
+        "type": "supported",
+        "genes": [
+          "IER3",
+          "IGFBP4",
+          "IGSF23"
+        ],
+        "pathways": [
+          "Extracellular Matrix Organization R-HSA-1474244"
+        ],
+        "hedged": true
+      },
+      {
+        "statement": "Observed expression shifts are consistent with perturbation-induced pathway modulation in GSE113650.",
+        "type": "hypothesis",
+        "genes": [
+          "IER3"
+        ],
+        "pathways": [
+          "Extracellular Matrix Organization R-HSA-1474244"
+        ],
+        "hedged": true
+      }
+    ],
+    "limitations": [
+      "Small sample size per group; results warrant orthogonal biological replication.",
+      "Bulk transcriptomics measures average cell population expression."
+    ],
+    "uncertainty": [
+      "Direct transcriptional targets versus secondary downstream regulatory cascades remain unverified without kinetic ChIP/degron assays."
+    ],
+    "disclaimer": "RESEARCH PROTOTYPE ONLY: This automated interpretation is generated for computational biology research and term-project evaluation. It is not approved for clinical diagnostics or medical decisions."
+  },
+  "evidence": [
+    {
+      "claim": "990 genes reached significance threshold (padj<0.05) with 689 up-regulated and 301 down-regulated in TNBC (MDA-MB-468/HC",
+      "query": "gene:IER3",
+      "source_id": "GSE113650:top_differential_genes#IER3",
+      "source_db": "DE_computation",
+      "snippet": "IER3: log2FC=2.43, padj=2.51e-03, direction=up",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "990 genes reached significance threshold (padj<0.05) with 689 up-regulated and 301 down-regulated in TNBC (MDA-MB-468/HC",
+      "query": "gene:IGFBP4",
+      "source_id": "GSE113650:top_differential_genes#IGFBP4",
+      "source_db": "DE_computation",
+      "snippet": "IGFBP4: log2FC=-2.10, padj=2.51e-03, direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "990 genes reached significance threshold (padj<0.05) with 689 up-regulated and 301 down-regulated in TNBC (MDA-MB-468/HC",
+      "query": "gene:IGSF23",
+      "source_id": "GSE113650:top_differential_genes#IGSF23",
+      "source_db": "DE_computation",
+      "snippet": "IGSF23: log2FC=inf, padj=2.51e-03, direction=up",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "Top enriched biological process is Extracellular Matrix Organization R-HSA-1474244, supported by multiple differential t",
+      "query": "gene:IER3",
+      "source_id": "GSE113650:top_differential_genes#IER3",
+      "source_db": "DE_computation",
+      "snippet": "IER3: log2FC=2.43, padj=2.51e-03, direction=up",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "Top enriched biological process is Extracellular Matrix Organization R-HSA-1474244, supported by multiple differential t",
+      "query": "gene:IGFBP4",
+      "source_id": "GSE113650:top_differential_genes#IGFBP4",
+      "source_db": "DE_computation",
+      "snippet": "IGFBP4: log2FC=-2.10, padj=2.51e-03, direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "Top enriched biological process is Extracellular Matrix Organization R-HSA-1474244, supported by multiple differential t",
+      "query": "gene:IGSF23",
+      "source_id": "GSE113650:top_differential_genes#IGSF23",
+      "source_db": "DE_computation",
+      "snippet": "IGSF23: log2FC=inf, padj=2.51e-03, direction=up",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "Top enriched biological process is Extracellular Matrix Organization R-HSA-1474244, supported by multiple differential t",
+      "query": "pathway:Extracellular Matrix Organization R-HSA-",
+      "source_id": "GSE113650:enrichment_Reactome#Extracellular Matrix Organizat",
+      "source_db": "Reactome",
+      "snippet": "Extracellular Matrix Organization R-HSA-1474244: FDR=9.44e-09, overlap=24/291",
+      "relevance": 0.95,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "Observed expression shifts are consistent with perturbation-induced pathway modulation in GSE113650.",
+      "query": "gene:IER3",
+      "source_id": "GSE113650:top_differential_genes#IER3",
+      "source_db": "DE_computation",
+      "snippet": "IER3: log2FC=2.43, padj=2.51e-03, direction=up",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    },
+    {
+      "claim": "Observed expression shifts are consistent with perturbation-induced pathway modulation in GSE113650.",
+      "query": "pathway:Extracellular Matrix Organization R-HSA-",
+      "source_id": "GSE113650:enrichment_Reactome#Extracellular Matrix Organizat",
+      "source_db": "Reactome",
+      "snippet": "Extracellular Matrix Organization R-HSA-1474244: FDR=9.44e-09, overlap=24/291",
+      "relevance": 0.95,
+      "timestamp": "2026-09-07T06:12:31.519804+00:00"
+    }
+  ],
+  "verdict": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "corrections": [],
+    "statistical_checks_passed": true,
+    "biological_grounding_passed": true,
+    "safety_guardrails_passed": true,
+    "audit_scores": {
+      "total_claims_audited": 3,
+      "errors_found": 0,
+      "warnings_found": 0,
+      "corrections_required": 0
+    }
+  },
+  "traces": [
+    {
+      "agent": "planner",
+      "question": "Evaluate differential expression comparing triple-negative breast cancer (TNBC) cell lines against non-TNBC receptor-positive lines and determine enriched pathways.",
+      "target_dataset": "GSE113650",
+      "llm_used": true,
+      "latency_s": 5.58,
+      "usage": {
+        "completion_tokens": 253,
+        "prompt_tokens": 535,
+        "total_tokens": 788,
+        "prompt_tokens_details": {
+          "cached_tokens": 33
+        }
+      },
+      "status": "success"
+    },
+    {
+      "agent": "computational_analyst",
+      "llm_used": false,
+      "dataset": "GSE113650",
+      "data_type": "CuffDiff study reference",
+      "contrast": "TNBC (MDA-MB-468/HCC70/HCC1143) vs non-TNBC (MCF7/BT474/T47D)",
+      "genes_tested": 14817,
+      "significant_genes": 990,
+      "up_regulated": 689,
+      "down_regulated": 301,
+      "execution_log": [
+        "Imported study CuffDiff statistical outputs",
+        "Filtered 14817 successfully tested genes",
+        "Identified 990 significant genes at q_value < 0.05",
+        "Loaded real gseapy Reactome & KEGG enrichment results"
+      ]
+    },
+    {
+      "agent": "biological_interpreter",
+      "dataset": "GSE113650",
+      "contrast": "TNBC (MDA-MB-468/HCC70/HCC1143) vs non-TNBC (MCF7/BT474/T47D)",
+      "llm_used": false,
+      "llm_error": "1 validation error for Interpretation\nobservations\n  Input should be a valid list [type=list_type, input_value='990 genes were identifie...d IKZF3 (log2FC=-7.32).', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+      "fallback": true,
+      "status": "fallback_applied"
+    },
+    {
+      "agent": "evidence_retriever",
+      "dataset": "GSE113650",
+      "n_records": 9,
+      "grounded_records": 9,
+      "missing_records": 0,
+      "corpus": "computed_differential_expression_and_enrichment"
+    },
+    {
+      "agent": "critic",
+      "dataset": "GSE113650",
+      "verdict_status": "PASS",
+      "errors_count": 0,
+      "warnings_count": 0,
+      "statistical_checks_passed": true,
+      "biological_grounding_passed": true,
+      "safety_guardrails_passed": true,
+      "verdict_snapshot": {
+        "status": "PASS",
+        "errors": [],
+        "warnings": [],
+        "corrections": [],
+        "statistical_checks_passed": true,
+        "biological_grounding_passed": true,
+        "safety_guardrails_passed": true,
+        "audit_scores": {
+          "total_claims_audited": 3,
+          "errors_found": 0,
+          "warnings_found": 0,
+          "corrections_required": 0
+        }
+      },
+      "iteration": 0
+    }
+  ]
+}

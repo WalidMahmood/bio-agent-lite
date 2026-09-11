@@ -60,19 +60,32 @@
     "outputs/tables/ablation_results.csv",
     "outputs/tables/resource_usage.csv",
     "outputs/tables/dataset_generalization.csv",
-    "outputs/tables/robustness_results.csv"
+    "outputs/tables/robustness_results.csv",
+    "outputs/tables/all_models_4datasets_comparison.csv",
+    "outputs/tables/model_systems_tradeoffs.csv",
+    "outputs/tables/all_datasets_confusion_matrix_metrics.csv",
+    "outputs/tables/step_by_step_execution_traces.json"
   ],
   "figures": [
     "outputs/figures/volcano_plot_GSE202768.png",
     "outputs/figures/pathways_GSE202768.png",
     "outputs/figures/architecture_comparison.png",
+    "outputs/figures/architecture_comparison_all_datasets.png",
     "outputs/figures/confusion_matrices.png",
+    "outputs/figures/all_datasets_confusion_matrices.png",
+    "outputs/figures/per_dataset_detailed_breakdown.png",
+    "outputs/figures/per_dataset_metric_heatmap.png",
+    "outputs/figures/model_improvement_waterfall.png",
     "outputs/figures/roc_auc_curves.png",
     "outputs/figures/comprehensive_metrics_comparison.png",
-    "outputs/figures/ablation_impact_breakdown.png"
+    "outputs/figures/ablation_impact_breakdown.png",
+    "outputs/figures/all_models_4datasets_comparison.png",
+    "outputs/figures/model_systems_radar.png",
+    "outputs/figures/pareto_efficiency_frontier.png"
   ],
   "notebooks": [
-    "notebooks/BioAgent_Lite_Complete_Demonstration.ipynb"
+    "notebooks/BioAgent_Lite_Complete_Demonstration.ipynb",
+    "notebooks/BioAgent_Lite_Complete_Demonstration_Executed.ipynb"
   ],
   "backend": {
     "framework": "FastAPI",

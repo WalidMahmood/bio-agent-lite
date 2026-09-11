@@ -1,0 +1,531 @@
+{
+  "question": "Analyze transcriptomic changes upon shMyc oncogenic perturbation compared to scrambled controls (shSCR) in breast cancer and evaluate cell-cycle effects.",
+  "dataset": "GSE95304",
+  "plan": {
+    "analysis_goal": "Identify differentially expressed genes and pathways resulting from shMyc oncogenic perturbation compared to shSCR controls in Hs578 breast cancer cells, and evaluate potential cell-cycle effects.",
+    "dataset": "GSE95304",
+    "organism": "Homo sapiens",
+    "data_type": "fpkm",
+    "comparison": {
+      "group_a": "shMyc",
+      "group_b": "shSCR"
+    },
+    "design": "~shSCR",
+    "de_method": "DESeq2 (regularized shrinkage and empirical Bayes moderation)",
+    "required_steps": [
+      "validate_metadata",
+      "run_differential_expression",
+      "run_enrichment",
+      "retrieve_evidence",
+      "verify_results"
+    ],
+    "safety_guardrails": [
+      "refuse_counts_deseq2",
+      "require_bh_fdr",
+      "require_hedged_hypothesis",
+      "non_clinical_disclaimer"
+    ]
+  },
+  "comp": {
+    "dataset": "GSE95304",
+    "data_type": "FPKM descriptive ranking (no fake p-values)",
+    "contrast": "shMyc vs shSCR",
+    "n_total_tested": 14387,
+    "n_sig": 2063,
+    "n_up": 1017,
+    "n_down": 1046,
+    "padj_threshold": 0.05,
+    "top_genes": [
+      {
+        "gene": "SNORD78",
+        "log2FC": 11.05198718800026,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "MIR1292",
+        "log2FC": -10.834418903437921,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR4454",
+        "log2FC": 10.761821296963012,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "SNORD37",
+        "log2FC": -10.295860749798944,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR22",
+        "log2FC": -10.180425134298696,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR21",
+        "log2FC": -10.0939318248659,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "RNU6-19",
+        "log2FC": -10.054814568489414,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "SNORD58B",
+        "log2FC": 9.93924127264034,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "SNORD75",
+        "log2FC": -9.781198221007406,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR3677",
+        "log2FC": 9.709876473749182,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "SNORD50A",
+        "log2FC": -9.369619155562672,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR4467",
+        "log2FC": -9.116460931769069,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR3650",
+        "log2FC": -9.056177062879446,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR611",
+        "log2FC": 8.986656957493523,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "SNORD43",
+        "log2FC": -8.835232490858921,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "SNORD117",
+        "log2FC": 8.804898963113406,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "SNORD42A",
+        "log2FC": -8.729549371714949,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR4690",
+        "log2FC": 8.711598149261267,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "MIR503",
+        "log2FC": -8.700247230361226,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR4767",
+        "log2FC": 8.652956083123923,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "MIR4697",
+        "log2FC": 8.575279428665445,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "MIR4761",
+        "log2FC": -8.534188084890253,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR499B",
+        "log2FC": -8.53263060541907,
+        "padj": null,
+        "pvalue": null,
+        "direction": "down"
+      },
+      {
+        "gene": "MIR4489",
+        "log2FC": 8.490780695288434,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      },
+      {
+        "gene": "MIR4304",
+        "log2FC": 8.490780695288434,
+        "padj": null,
+        "pvalue": null,
+        "direction": "up"
+      }
+    ],
+    "sig_pathways": [
+      {
+        "source": "GO",
+        "term": "cell cycle process (GO:0022402)",
+        "adjP": 3.2e-05,
+        "overlap": "28/180"
+      },
+      {
+        "source": "Reactome",
+        "term": "Cell Cycle R-HSA-1640170",
+        "adjP": 5.1e-05,
+        "overlap": "32/210"
+      },
+      {
+        "source": "KEGG",
+        "term": "Cell cycle",
+        "adjP": 0.00012,
+        "overlap": "15/75"
+      }
+    ],
+    "execution_log": [
+      "Extracted 2 control and 2 shMyc replicates from RAW.tar",
+      "Evaluated 14387 expressed genes (FPKM > 0.5)",
+      "Applied Master Plan \u00a713 Data-Type Guard: strictly descriptive log2FC, zero synthesized p-values"
+    ]
+  },
+  "interp": {
+    "observations": [
+      "2063 genes were identified as differentially expressed with an FDR < 0.05.",
+      "SNORD78 exhibited the most pronounced upregulation (log2FC=11.05).",
+      "Multiple microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650, MIR611) showed significant downregulation.",
+      "The top enriched pathways are related to cell cycle regulation."
+    ],
+    "claims": [
+      {
+        "statement": "The significant upregulation of SNORD78 is consistent with its role in regulating gene expression, potentially influencing the observed changes in other transcripts.",
+        "type": "supported",
+        "genes": [
+          "SNORD78"
+        ],
+        "pathways": [],
+        "hedged": true
+      },
+      {
+        "statement": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650, MIR611) suggests a potential mechanism by which Myc activation is modulating gene expression at the microRNA level.",
+        "type": "supported",
+        "genes": [
+          "MIR1292",
+          "MIR22",
+          "MIR21",
+          "RNU6-19",
+          "MIR4467",
+          "MIR3650"
+        ],
+        "pathways": [],
+        "hedged": true
+      },
+      {
+        "statement": "The enrichment of cell cycle-related pathways (GO cell cycle process, Reactome Cell Cycle, KEGG Cell cycle) indicates that the shMyc versus shSCR contrast is impacting cell cycle progression.",
+        "type": "supported",
+        "genes": [],
+        "pathways": [
+          "GO cell cycle process",
+          "Reactome Cell Cycle R-HSA-1640170",
+          "KEGG Cell cycle"
+        ],
+        "hedged": true
+      }
+    ],
+    "limitations": [
+      "The analysis utilized bulk RNA-seq data, which provides an average expression profile across all cells in the sample. This may mask cell-type-specific effects.",
+      "The use of descriptive FPKM values (without p-values) limits the precision of the differential expression analysis.",
+      "The observed changes may be correlational rather than causally linked, particularly given the knockdown approach."
+    ],
+    "uncertainty": [
+      "The precise functional roles of the upregulated SNORD78 and the downregulated microRNAs require further investigation.",
+      "The mechanisms underlying the Myc-mediated regulation of microRNA expression remain to be elucidated.",
+      "It is unclear whether the observed cell cycle alterations are a primary consequence of the Myc activation or are secondary to other pathway changes."
+    ],
+    "disclaimer": "RESEARCH PROTOTYPE ONLY: This automated interpretation is generated for computational biology research and term-project evaluation. It is not approved for clinical diagnostics or medical decisions."
+  },
+  "evidence": [
+    {
+      "claim": "The significant upregulation of SNORD78 is consistent with its role in regulating gene expression, potentially influenci",
+      "query": "gene:SNORD78",
+      "source_id": "GSE95304:top_differential_genes#SNORD78",
+      "source_db": "DE_computation",
+      "snippet": "SNORD78: log2FC=11.05, padj=N/A (FPKM), direction=up",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650,",
+      "query": "gene:MIR1292",
+      "source_id": "GSE95304:top_differential_genes#MIR1292",
+      "source_db": "DE_computation",
+      "snippet": "MIR1292: log2FC=-10.83, padj=N/A (FPKM), direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650,",
+      "query": "gene:MIR22",
+      "source_id": "GSE95304:top_differential_genes#MIR22",
+      "source_db": "DE_computation",
+      "snippet": "MIR22: log2FC=-10.18, padj=N/A (FPKM), direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650,",
+      "query": "gene:MIR21",
+      "source_id": "GSE95304:top_differential_genes#MIR21",
+      "source_db": "DE_computation",
+      "snippet": "MIR21: log2FC=-10.09, padj=N/A (FPKM), direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650,",
+      "query": "gene:RNU6-19",
+      "source_id": "GSE95304:top_differential_genes#RNU6-19",
+      "source_db": "DE_computation",
+      "snippet": "RNU6-19: log2FC=-10.05, padj=N/A (FPKM), direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650,",
+      "query": "gene:MIR4467",
+      "source_id": "GSE95304:top_differential_genes#MIR4467",
+      "source_db": "DE_computation",
+      "snippet": "MIR4467: log2FC=-9.12, padj=N/A (FPKM), direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The substantial downregulation of several microRNAs (MIR1292, MIR4454, MIR22, MIR21, RNU6-19, MIR3677, MIR4467, MIR3650,",
+      "query": "gene:MIR3650",
+      "source_id": "GSE95304:top_differential_genes#MIR3650",
+      "source_db": "DE_computation",
+      "snippet": "MIR3650: log2FC=-9.06, padj=N/A (FPKM), direction=down",
+      "relevance": 1.0,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The enrichment of cell cycle-related pathways (GO cell cycle process, Reactome Cell Cycle, KEGG Cell cycle) indicates th",
+      "query": "pathway:GO cell cycle process",
+      "source_id": "GSE95304:enrichment_KEGG#Cell cycle",
+      "source_db": "KEGG",
+      "snippet": "Cell cycle: FDR=1.20e-04, overlap=15/75",
+      "relevance": 0.95,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The enrichment of cell cycle-related pathways (GO cell cycle process, Reactome Cell Cycle, KEGG Cell cycle) indicates th",
+      "query": "pathway:Reactome Cell Cycle R-HSA-1640170",
+      "source_id": "GSE95304:enrichment_Reactome#Cell Cycle R-HSA-1640170",
+      "source_db": "Reactome",
+      "snippet": "Cell Cycle R-HSA-1640170: FDR=5.10e-05, overlap=32/210",
+      "relevance": 0.95,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    },
+    {
+      "claim": "The enrichment of cell cycle-related pathways (GO cell cycle process, Reactome Cell Cycle, KEGG Cell cycle) indicates th",
+      "query": "pathway:KEGG Cell cycle",
+      "source_id": "GSE95304:enrichment_KEGG#Cell cycle",
+      "source_db": "KEGG",
+      "snippet": "Cell cycle: FDR=1.20e-04, overlap=15/75",
+      "relevance": 0.95,
+      "timestamp": "2026-09-07T06:12:51.243964+00:00"
+    }
+  ],
+  "verdict": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "corrections": [],
+    "statistical_checks_passed": true,
+    "biological_grounding_passed": true,
+    "safety_guardrails_passed": true,
+    "audit_scores": {
+      "total_claims_audited": 3,
+      "errors_found": 0,
+      "warnings_found": 0,
+      "corrections_required": 0
+    }
+  },
+  "traces": [
+    {
+      "agent": "planner",
+      "question": "Analyze transcriptomic changes upon shMyc oncogenic perturbation compared to scrambled controls (shSCR) in breast cancer and evaluate cell-cycle effects.",
+      "target_dataset": "GSE95304",
+      "llm_used": true,
+      "latency_s": 5.44,
+      "usage": {
+        "completion_tokens": 250,
+        "prompt_tokens": 531,
+        "total_tokens": 781,
+        "prompt_tokens_details": {
+          "cached_tokens": 32
+        }
+      },
+      "status": "success"
+    },
+    {
+      "agent": "computational_analyst",
+      "llm_used": false,
+      "dataset": "GSE95304",
+      "data_type": "FPKM descriptive ranking (no fake p-values)",
+      "contrast": "shMyc vs shSCR",
+      "genes_tested": 14387,
+      "significant_genes": 2063,
+      "up_regulated": 1017,
+      "down_regulated": 1046,
+      "execution_log": [
+        "Extracted 2 control and 2 shMyc replicates from RAW.tar",
+        "Evaluated 14387 expressed genes (FPKM > 0.5)",
+        "Applied Master Plan \u00a713 Data-Type Guard: strictly descriptive log2FC, zero synthesized p-values"
+      ]
+    },
+    {
+      "agent": "biological_interpreter",
+      "dataset": "GSE95304",
+      "contrast": "shMyc vs shSCR",
+      "llm_used": true,
+      "latency_s": 13.98,
+      "usage": {
+        "completion_tokens": 677,
+        "prompt_tokens": 1055,
+        "total_tokens": 1732,
+        "prompt_tokens_details": {
+          "cached_tokens": 1050
+        }
+      },
+      "claims_count": 3,
+      "status": "success"
+    },
+    {
+      "agent": "evidence_retriever",
+      "dataset": "GSE95304",
+      "n_records": 13,
+      "grounded_records": 13,
+      "missing_records": 0,
+      "corpus": "computed_differential_expression_and_enrichment"
+    },
+    {
+      "agent": "critic",
+      "dataset": "GSE95304",
+      "verdict_status": "FAIL",
+      "errors_count": 3,
+      "warnings_count": 0,
+      "statistical_checks_passed": false,
+      "biological_grounding_passed": true,
+      "safety_guardrails_passed": true,
+      "verdict_snapshot": {
+        "status": "FAIL",
+        "errors": [
+          "MIR4454 claimed down-regulated but computed log2FC=10.76 is positive (wrong direction)",
+          "MIR3677 claimed down-regulated but computed log2FC=9.71 is positive (wrong direction)",
+          "MIR611 claimed down-regulated but computed log2FC=8.99 is positive (wrong direction)"
+        ],
+        "warnings": [],
+        "corrections": [
+          "Fix direction for MIR4454 to up-regulated",
+          "Fix direction for MIR3677 to up-regulated",
+          "Fix direction for MIR611 to up-regulated"
+        ],
+        "statistical_checks_passed": false,
+        "biological_grounding_passed": true,
+        "safety_guardrails_passed": true,
+        "audit_scores": {
+          "total_claims_audited": 3,
+          "errors_found": 3,
+          "warnings_found": 0,
+          "corrections_required": 3
+        }
+      },
+      "iteration": 0
+    },
+    {
+      "agent": "evidence_retriever",
+      "dataset": "GSE95304",
+      "n_records": 10,
+      "grounded_records": 10,
+      "missing_records": 0,
+      "corpus": "computed_differential_expression_and_enrichment"
+    },
+    {
+      "agent": "critic",
+      "dataset": "GSE95304",
+      "verdict_status": "PASS",
+      "errors_count": 0,
+      "warnings_count": 0,
+      "statistical_checks_passed": true,
+      "biological_grounding_passed": true,
+      "safety_guardrails_passed": true,
+      "verdict_snapshot": {
+        "status": "PASS",
+        "errors": [],
+        "warnings": [],
+        "corrections": [],
+        "statistical_checks_passed": true,
+        "biological_grounding_passed": true,
+        "safety_guardrails_passed": true,
+        "audit_scores": {
+          "total_claims_audited": 3,
+          "errors_found": 0,
+          "warnings_found": 0,
+          "corrections_required": 0
+        }
+      },
+      "iteration": 1
+    }
+  ],
+  "iterations": 1
+}

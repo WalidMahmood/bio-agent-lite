@@ -43,7 +43,10 @@ CRITICAL SCIENTIFIC & SAFETY RULES:
 def interpret(comp: ComputationalResult, use_llm: bool = True) -> Tuple[Interpretation, Dict[str, Any]]:
     """Generate biological interpretation from structured computational summary."""
     genes_txt = "\n".join(
-        [f"- {g.gene}: log2FC={g.log2FC:.2f}, padj={g.padj:.2e}, direction={g.direction}" for g in comp.top_genes[:15]]
+        [
+            f"- {g.gene}: log2FC={g.log2FC:.2f}, padj={f'{g.padj:.2e}' if g.padj is not None else 'N/A (descriptive FPKM)'}, direction={g.direction}"
+            for g in comp.top_genes[:15]
+        ]
     )
     pw_txt = "\n".join(
         [f"- {p.source} {p.term}: FDR={p.adjP:.2e}, overlap={p.overlap}" for p in comp.sig_pathways[:8]]

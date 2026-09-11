@@ -92,10 +92,11 @@ def compute_statistical_correctness(
             if isinstance(row, pd.DataFrame):
                 row = row.iloc[0]
 
-            lfc = float(row["log2FoldChange"]) if "log2FoldChange" in row else 0.0
-            padj = float(row["padj"]) if "padj" in row else 1.0
+            lfc = float(row["log2FoldChange"]) if "log2FoldChange" in row and pd.notna(row["log2FoldChange"]) else 0.0
+            padj_val = row["padj"] if "padj" in row else None
+            padj = float(padj_val) if (padj_val is not None and pd.notna(padj_val)) else None
 
-            is_stat_trap = padj >= padj_threshold and ("significan" in stmt or c.get("type") == "observed")
+            is_stat_trap = (padj is not None) and (padj >= padj_threshold) and ("significan" in stmt or c.get("type") == "observed")
             if is_stat_trap:
                 padj_errors += 1
                 continue

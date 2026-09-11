@@ -1,10 +1,28 @@
-# BioAgent-Lite P0 - Windows Python 3.11.9
-# Already installed (do NOT reinstall): fastapi, uvicorn, celery, redis, langgraph, pandas, numpy, scipy, scikit-learn, matplotlib, torch, chromadb, sqlalchemy, psycopg2-binary, pydantic
-# To install (missing):
+# BioAgent-Lite Python Dependencies
+# Core Web & API Framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.5.0
+python-multipart>=0.0.9
+psutil>=5.9.0
+requests>=2.31.0
+
+# Scientific & Bioinformatics Computing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.11.0
+matplotlib>=3.7.0
+reportlab>=4.0.0
 pydeseq2>=0.4.0
 gseapy>=1.0.0
 GEOparse>=2.0.0
 mygene>=3.2.0
+
+# Literature Grounding & Vector Storage
+chromadb>=0.4.0
 sentence-transformers>=2.0.0
 transformers>=4.40.0
-ollama>=0.6.0
+
+# Optional Interactive Testing
+jupyter>=1.0.0
+pytest>=7.4.0

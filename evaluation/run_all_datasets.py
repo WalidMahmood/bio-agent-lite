@@ -46,6 +46,14 @@ DATASET_EXPERIMENTS = [
         ),
         "role": "Held-Out Evaluation",
     },
+    {
+        "dataset": "GSE336903",
+        "question": (
+            "Perform smoke test validation on mouse mammary perturbation data comparing "
+            "treatment against control replicates with Mus musculus annotation."
+        ),
+        "role": "Smoke Test",
+    },
 ]
 
 
@@ -60,21 +68,41 @@ def run_generalization_benchmark() -> pd.DataFrame:
         ds = exp["dataset"]
         q = exp["question"]
         role = exp["role"]
-        print(f"\n--- Running {ds} ({role}) ---")
+        print(f"\n--- Running {ds} ({role}) on GPU ---")
 
         t0 = datetime.datetime.now(datetime.timezone.utc)
         final = graph.invoke({"question": q, "dataset": ds})
+        t1 = datetime.datetime.now(datetime.timezone.utc)
+        duration_s = (t1 - t0).total_seconds()
 
-        comp_dict = final["comp"]
-        interp_dict = final["interp"]
-        evidence_list = final["evidence"]
-        verdict_dict = final["verdict"]
+        # Save actual on-disk trace
+        ts = t0.strftime("%Y%m%dT%H%M%SZ")
+        trace_path = os.path.join(base_dir, "outputs", "traces", f"eval_{ds}_{ts}.json")
+        os.makedirs(os.path.dirname(trace_path), exist_ok=True)
+        with open(trace_path, "w", encoding="utf-8") as tf:
+            json.dump(final, tf, indent=2, default=str)
+        print(f"Saved real execution trace: {trace_path} ({duration_s:.1f}s)")
+
+        comp_dict = final.get("comp", {})
+        interp_dict = final.get("interp", {})
+        evidence_list = final.get("evidence", [])
+        verdict_dict = final.get("verdict", {})
 
         ref = execute_computation(ds)
-        ref_sig_set = set(g.gene.upper() for g in ref.top_genes if g.padj < 0.05)
-        reported_genes = [g["gene"] for g in comp_dict.get("top_genes", [])]
+        
+        # Check if dataset has true padj or is descriptive FPKM
+        is_descriptive = ("FPKM" in str(comp_dict.get("data_type", "")) and "no fake" in str(comp_dict.get("data_type", ""))) or (ref.top_genes and ref.top_genes[0].padj is None)
 
-        de_res = compute_de_metrics(reported_genes, ref_sig_set, ref.n_total_tested)
+        if is_descriptive:
+            de_prec = "N/A (Descriptive FPKM)"
+            de_f1 = "N/A (Descriptive FPKM)"
+        else:
+            ref_sig_set = set(g.gene.upper() for g in ref.top_genes if g.padj is not None and g.padj < 0.05)
+            reported_genes = [g["gene"] for g in comp_dict.get("top_genes", [])]
+            de_res = compute_de_metrics(reported_genes, ref_sig_set, ref.n_total_tested)
+            de_prec = de_res["precision"]
+            de_f1 = de_res["f1"]
+
         ref_df = pd.DataFrame(comp_dict.get("top_genes", []))
         stat_res = compute_statistical_correctness(interp_dict.get("claims", []), ref_df)
         ev_res = compute_evidence_support_rate(evidence_list)
@@ -86,12 +114,13 @@ def run_generalization_benchmark() -> pd.DataFrame:
                 "Data Type": comp_dict.get("data_type", "counts"),
                 "Genes Tested": comp_dict.get("n_total_tested", 0),
                 "Significant Genes": comp_dict.get("n_sig", 0),
-                "DE Precision": de_res["precision"],
-                "DE F1": de_res["f1"],
+                "DE Precision": de_prec,
+                "DE F1": de_f1,
                 "Statistical Accuracy": stat_res["statistical_accuracy"],
                 "Evidence Support Rate": ev_res["evidence_support_rate"],
                 "Critic Verdict": verdict_dict.get("status", "PASS"),
                 "Iterations": final.get("iterations", 0),
+                "Trace File": os.path.basename(trace_path),
             }
         )
 
