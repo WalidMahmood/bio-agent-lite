@@ -359,7 +359,7 @@ async def run_pipeline(req: PipelineRunRequest):
         target_file = None
         ds_name = req.dataset
         if req.custom_filename:
-            fpath = UPLOAD_DIR / req.custom_filename
+            fpath = UPLOADS_DIR / req.custom_filename
             if fpath.exists():
                 target_file = fpath
                 ds_name = req.custom_filename.replace(".csv", "").replace(".tsv", "")

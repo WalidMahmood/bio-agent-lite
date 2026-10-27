@@ -61,7 +61,7 @@ def assert_is_counts(df, name="matrix"):
     vals = df.select_dtypes(include="number").to_numpy().ravel()
     vals = vals[~pd.isna(vals)]
     if len(vals) == 0:
-        raise Value(value_error := ValueError(f"{name}: no numeric values"))
+        raise ValueError(f"{name}: no numeric values, rows may be empty")
     non_integer = (vals % 1 != 0).mean()
     if non_integer > 0.01:
         raise ValueError(
