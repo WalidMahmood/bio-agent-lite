@@ -91,6 +91,8 @@ User Question / Uploaded RNA-seq Matrix
 
 **Generalization across 4 datasets** (`outputs/tables/dataset_generalization.csv`) — all four roles PASS with full statistical-claim accuracy; critic verdicts `PASS` on every dataset (1.0 evidence support on 3/4; 0.579 on the noisy development set).
 
+> **Reading these numbers correctly:** DE F1 / precision / recall / statistical accuracy measure **task performance** ("did it find the right genes?") — 100% on all four datasets. *Evidence Support Rate* is a separate, stricter **integrity meter**: the share of write-up claims carrying a grounded evidence receipt. On the development set, **every gene claim had a receipt** — the only misses (8/19) were pathway names the interpreter mentioned beyond the computed significant list, which the system stamps `#ABSENT` rather than padding. Runs vary 0.55–0.74 there because claim mix varies per LLM run; task accuracy does not vary. Every variant and its source file: [`docs/RESULTS.md` §10](docs/RESULTS.md#10-cross-run-metric-variance-table-the-honest-summary).
+
 **Adversarial robustness** (`outputs/tables/robustness_results.csv`) — R1–R4 stress tests (missing metadata, identical groups, injected decoy gene, statistical trap): **4/4 detected, 4/4 safe completion**.
 
 **Genome-wide ranking** (empirical ROC on 14,009-gene reference table, `roc_auc_curves.png`): **ROC-AUC 0.967 / PR-AUC 0.637** for the system's candidate ranking (LLM-only proxy ≈ chance, 0.518 / 0.039).
